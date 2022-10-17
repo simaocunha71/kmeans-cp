@@ -10,22 +10,24 @@ void fill(POINT* space, POINT* clusters, int ssize, int csize){
     for(int i = 0; i < ssize; i++) {
         space[i].x = (float) rand() / RAND_MAX;
         space[i].y = (float) rand() / RAND_MAX;
+        space[i].min_dist = MAX_DIST;
+        space[i].cluster_id = -1;
     }
     for(int i = 0; i < csize; i++) {
         clusters[i].x = space[i].x;
         clusters[i].y = space[i].y;
+        clusters[i].min_dist = -1;
+        clusters[i].cluster_id = NULL;
     }
 }
 
 void assign_cluster(POINT* space, POINT* clusters, int ssize, int csize){
     for(int i = 0; i < csize; i++) {
-        int clusterID = -1;
-        double minDist = MAX_DIST;
         for(int j = 0; j < ssize; j++) {
             double dist = euclidian_distance(space[j],clusters[i]);
-            if (dist < minDist) {
-                minDist = dist;
-                clusterID = i;
+            if (dist < space[j].min_dist) {
+                space[j].min_dist = dist;
+                space[j].cluster_id = i;
             }
         }
     }

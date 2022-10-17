@@ -10,6 +10,8 @@
 typedef struct point {
     float x; //Value of x
     float y; //Value of y
+    int cluster_id;
+    double min_dist;
 } POINT;
 
 
