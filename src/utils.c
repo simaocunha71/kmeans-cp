@@ -17,6 +17,24 @@ void fill(POINT* space, POINT* clusters, int ssize, int csize){
     }
 }
 
+void assign_cluster(POINT* space, POINT* clusters, int ssize, int csize){
+    for(int i = 0; i < csize; i++) {
+        int clusterID = -1;
+        double minDist = MAX_DIST;
+        for(int j = 0; j < ssize; j++) {
+            double dist = euclidian_distance(space[j],clusters[i]);
+            if (dist < minDist) {
+                minDist = dist;
+                clusterID = i;
+            }
+        }
+    }
+}
+
+float euclidian_distance(POINT p1, POINT p2){
+    return sqrt(pow(p2.y - p1.y, 2) + pow(p1.x - p1.y, 2));
+}
+
 //debug
 void print_content(POINT* space, POINT* clusters, int ssize, int csize){
     printf("################## SAMPLES ##################\n");

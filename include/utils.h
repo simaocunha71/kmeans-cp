@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
+
+#define MAX_DIST 10
 
 /**
  * @brief Point struct
@@ -26,6 +29,17 @@ POINT* create_vector(int size);
  * @param ssize Size of clusters' vector
  */
 void fill(POINT* space, POINT* clusters, int ssize, int csize);
+
+/**
+ * @brief Euclidian distance between two points
+ * @param p1 Point 1
+ * @param p2 Point 2
+ * @return float Distance between Point 1 and Point 2
+ */
+float euclidian_distance(POINT p1, POINT p2);
+
+void assign_cluster(POINT* space, POINT* clusters, int ssize, int csize);
+
 
 //debug
 void print_content(POINT* space, POINT* clusters, int ssize, int csize);
