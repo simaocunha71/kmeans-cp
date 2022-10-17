@@ -1,8 +1,8 @@
 #include "../include/k_means.h"
 
 void start_clusters(int n_samples, int k_clusters){
-    float** samples_space = create_matrix(n_samples);
-    float** clusters = create_matrix(k_clusters);
+    POINT* samples_space = create_vector(n_samples);
+    POINT* clusters = create_vector(k_clusters);
 
     fill(samples_space, clusters,n_samples, k_clusters);
 

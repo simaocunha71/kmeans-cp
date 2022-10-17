@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "utils.h"
 
-#define N_SAMPLES 40
+#define N_SAMPLES 10000000
 #define K_CLUSTERS 4
 
 /**

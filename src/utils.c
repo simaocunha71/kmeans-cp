@@ -1,40 +1,31 @@
 #include "../include/utils.h"
 
-float** create_matrix(int size){
-    float** mat = (float**)malloc(size * sizeof(float*));
-    for (int i = 0; i < size; i++)
-        mat[i] = (float*)malloc(size * sizeof(float));
-    return mat;
+POINT* create_vector(int size){
+    POINT* vec = (POINT*)malloc(size * sizeof(struct point));
+    return vec;
 }
 
-void fill(float** space, float** clusters, int ssize, int csize){
+void fill(POINT* space, POINT* clusters, int ssize, int csize){
     srand(10);
     for(int i = 0; i < ssize; i++) {
-        for(int j = 0; j < ssize; j++){
-            space[i][j] = (float) rand() / RAND_MAX;
-        }
+        space[i].x = (float) rand() / RAND_MAX;
+        space[i].y = (float) rand() / RAND_MAX;
     }
     for(int i = 0; i < csize; i++) {
-        for(int j = 0; j < csize; j++){
-            clusters[i][j] = space[i][j];
-        }
+        clusters[i].x = space[i].x;
+        clusters[i].y = space[i].y;
     }
 }
 
 //debug
-void print_content(float** space, float** clusters, int ssize, int csize){
-    printf("#################### SAMPLES ####################\n");
+void print_content(POINT* space, POINT* clusters, int ssize, int csize){
+    printf("################## SAMPLES ##################\n");
     for(int i = 0; i < ssize; i++) {
-        for(int j = 0; j < ssize; j++){
-            printf("%.2f ", space[i][j]);
-        }
-        printf("\n");
+        printf("(%.2f, %.2f) ", space[i].x, space[i].y);
     }
-    printf("\n#################### CLUSTERS ####################\n");
+    printf("\n################## Clusters ##################\n");
     for(int i = 0; i < csize; i++) {
-        for(int j = 0; j < csize; j++){
-            printf("%.2f ", clusters[i][j]);
-        }
-        printf("\n");
+        printf("(%.2f, %.2f) ", space[i].x, space[i].y);
     }
+    printf("\n");
 }

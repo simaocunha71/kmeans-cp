@@ -1,21 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 /**
- * @brief Create matrix
- * @param size Number of lines and columns
- * @return float** Matrix
+ * @brief Point struct
  */
-float** create_matrix(int size);
+typedef struct point {
+    float x; //Value of x
+    float y; //Value of y
+} POINT;
+
+
+/**
+ * @brief Create a vector object
+ * @param size Vector size
+ * @return POINT* Vector allocated
+ */
+POINT* create_vector(int size);
 
 
 /**
  * @brief Fill sample's space with random values and fill clusters' matrix
  * @param space Sample's space
- * @param clusters Clusters' matrix
+ * @param clusters Clusters' vector
  * @param ssize Size of sample's space
- * @param ssize Size of clusters' matrix
+ * @param ssize Size of clusters' vector
  */
-void fill(float** space, float** clusters, int ssize, int csize);
+void fill(POINT* space, POINT* clusters, int ssize, int csize);
 
 //debug
-void print_content(float** space, float** clusters, int ssize, int csize);
+void print_content(POINT* space, POINT* clusters, int ssize, int csize);
