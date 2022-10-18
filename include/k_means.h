@@ -6,9 +6,8 @@
 #define K_CLUSTERS 4
 
 /**
- * @brief Start clusters
- * INCOMPLETO 
+ * @brief K_means algorith.
  * @param n_samples Number of samples
  * @param k_clusters Number of clusters
  */
-void start_clusters(int n_samples, int k_clusters);
+void k_means(int n_samples, int k_clusters);

@@ -10,8 +10,8 @@
 typedef struct point {
     float x; //Value of x
     float y; //Value of y
-    int cluster_id;
-    double min_dist;
+    int cluster_id; //Cluster assigned
+    double min_dist; //Minimum distance
 } POINT;
 
 
@@ -40,8 +40,25 @@ void fill(POINT* space, POINT* clusters, int ssize, int csize);
  */
 float euclidian_distance(POINT p1, POINT p2);
 
+/**
+ * @brief Assign all points to a cluster
+ * @param space Point vector
+ * @param clusters Cluster vector
+ * @param ssize Point vector size
+ * @param csize Cluster vector size
+ */
 void assign_cluster(POINT* space, POINT* clusters, int ssize, int csize);
 
+/**
+ * @brief Calculate centroids
+ * @param space Point vector
+ * @param clusters Cluster vector
+ * @param ssize Point vector size
+ * @param csize Cluster vector size
+ */
+void calculate_centroids(POINT* space, POINT* clusters, int ssize, int csize);
+
+int compare_centroids(POINT* clusters_old, POINT* clusters_new, int csize);
 
 //debug
 void print_content(POINT* space, POINT* clusters, int ssize, int csize);
