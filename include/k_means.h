@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "utils.h"
 
 #define N_SAMPLES 10000000

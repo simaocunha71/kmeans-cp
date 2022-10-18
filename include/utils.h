@@ -60,5 +60,7 @@ void calculate_centroids(POINT* space, POINT* clusters, int ssize, int csize);
 
 int compare_centroids(POINT* clusters_old, POINT* clusters_new, int csize);
 
+void copy_clusters(POINT* cluster, POINT* cluster_to_copy, int csize);
+
 //debug
 void print_content(POINT* space, POINT* clusters, int ssize, int csize);

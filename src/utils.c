@@ -34,7 +34,7 @@ void assign_cluster(POINT* space, POINT* clusters, int ssize, int csize){
 }
 
 float euclidian_distance(POINT p1, POINT p2){
-    return sqrt(pow(p2.y - p1.y, 2) + pow(p1.x - p1.y, 2));
+    return sqrt(pow(p2.y - p1.y, 2) + pow(p2.x - p1.x, 2));
 }
 
 void calculate_centroids(POINT* space, POINT* clusters, int ssize, int csize){
@@ -61,18 +61,34 @@ void calculate_centroids(POINT* space, POINT* clusters, int ssize, int csize){
 
     // Compute the new centroids
     for (int i = 0; i < csize; i++) {
+        printf("cox%d(%.5f) | ", i,clusters[i].x);
+
         clusters[i].x = sumX[i] / nPoints[i];
+
+        printf("cnx%d(%.5f) || ", i,clusters[i].x);
+        printf("coy%d(%.5f) | ", i,clusters[i].y);
+
         clusters[i].y = sumY[i] / nPoints[i];
+
+        printf("cny%d(%.5f)\n", i,clusters[i].y);
     }
 }
 
 int compare_centroids(POINT* clusters_old, POINT* clusters_new, int csize){
     int equals = 1;
     for(int i = 0; i < csize && equals; i++){
+        //printf("cox%d(%.2f) == cnx%d(%.2f) || coy%d(%.2f) == cny%d(%.2f)\n", i,clusters_old[i].x,i, clusters_new[i].x,i,clusters_old[i].y, i,clusters_new[i].y);
         if(clusters_old[i].x != clusters_new[i].x || clusters_old[i].y != clusters_new[i].y)
             equals = 0;
     }
     return equals;
+}
+
+void copy_clusters(POINT* cluster, POINT* cluster_to_copy, int csize){
+    for (int i = 0; i < csize; i++){
+        cluster[i].x = cluster_to_copy[i].x;
+        cluster[i].y = cluster_to_copy[i].y;
+    }
 }
 
 //debug

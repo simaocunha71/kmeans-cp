@@ -3,16 +3,17 @@
 void k_means(int n_samples, int k_clusters){
     POINT* samples_space = create_vector(n_samples);
     POINT* clusters = create_vector(k_clusters);
+    POINT* clusters_old = create_vector(k_clusters);
     fill(samples_space, clusters, n_samples, k_clusters);
-    assign_cluster(samples_space, clusters, n_samples, k_clusters);
-
-    POINT* clusters_old = clusters;
-    
     int iterations = 0;
-
-    while(compare_centroids(clusters_old, clusters, k_clusters) == 0){
-        calculate_centroids(samples_space, clusters, n_samples, k_clusters);
+    int equals = 0;
+    while(!equals){
         iterations++;
+        printf("***Iteration %d***\n",iterations);
+        copy_clusters(clusters_old, clusters,k_clusters);
+        assign_cluster(samples_space, clusters, n_samples, k_clusters);
+        calculate_centroids(samples_space, clusters, n_samples, k_clusters);
+        equals = compare_centroids(clusters_old, clusters, k_clusters);
     }
 
 
