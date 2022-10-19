@@ -9,20 +9,15 @@ void k_means(int n_samples, int k_clusters){
     int equals = 0;
     while(!equals){
         iterations++;
-        printf("***Iteration %d***\n",iterations);
+        //printf("***Iteration %d***\n",iterations); //DEBUG
         copy_clusters(clusters_old, clusters,k_clusters);
         assign_cluster(samples_space, clusters, n_samples, k_clusters);
         calculate_centroids(samples_space, clusters, n_samples, k_clusters);
         equals = compare_centroids(clusters_old, clusters, k_clusters);
     }
-
-
-
-    printf("Iterations = %d\n", iterations);
-
+    print_output(n_samples, k_clusters, clusters, iterations);
 }
 
-//A CONSIDERAR: https://reasonabledeviations.com/2019/10/02/k-means-in-cpp/
 int main (int argc, char const *argv[]){
     k_means(N_SAMPLES, K_CLUSTERS);
     return 0;

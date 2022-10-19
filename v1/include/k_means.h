@@ -4,7 +4,7 @@
 #define K_CLUSTERS 4
 
 /**
- * @brief K_means algorith.
+ * @brief Implementation of k-means algorithm
  * @param n_samples Number of samples
  * @param k_clusters Number of clusters
  */
