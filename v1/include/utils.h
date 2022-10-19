@@ -24,7 +24,7 @@ POINT* create_vector(int size);
 
 
 /**
- * @brief Fill sample's space with random values and fill clusters' matrix
+ * @brief Fill sample's space and clusters with random values according with a certain seed and calculus
  * @param space Sample's space
  * @param clusters Clusters' vector
  * @param ssize Size of sample's space
@@ -33,7 +33,8 @@ POINT* create_vector(int size);
 void fill(POINT* space, POINT* clusters, int ssize, int csize);
 
 /**
- * @brief Euclidian distance between two points
+ * @brief Calculates euclidian distance between two points.
+ * Each point is represented by the struct POINT
  * @param p1 Point 1
  * @param p2 Point 2
  * @return float Distance between Point 1 and Point 2
@@ -41,7 +42,8 @@ void fill(POINT* space, POINT* clusters, int ssize, int csize);
 float euclidian_distance(POINT p1, POINT p2);
 
 /**
- * @brief Assign all points to a cluster
+ * @brief Assign each point of space data to a certain cluster:
+ * It calculates euclidian distance between data point and cluster and assigns point to the closest cluster (minimum distance)
  * @param space Point vector
  * @param clusters Cluster vector
  * @param ssize Point vector size
@@ -50,7 +52,12 @@ float euclidian_distance(POINT p1, POINT p2);
 void assign_cluster(POINT* space, POINT* clusters, int ssize, int csize);
 
 /**
- * @brief Calculate centroids
+ * @brief Calculate centroid of each cluster.
+ * Saves 3 arrays: 
+ * -> number of points associated to each cluster (index refers to cluster - 0 to cluster0, 1 to cluster1, ...); 
+ * -> sum of x values associated to each cluster
+ * -> sum of y values associated to each cluster
+ * In order to calculate the centroid, we shall iterate over clusters vector and we divide in each cluster the sum with the number of points associated 
  * @param space Point vector
  * @param clusters Cluster vector
  * @param ssize Point vector size
@@ -59,7 +66,7 @@ void assign_cluster(POINT* space, POINT* clusters, int ssize, int csize);
 void calculate_centroids(POINT* space, POINT* clusters, int ssize, int csize);
 
 /**
- * @brief Compare centroids: if they have the same values in two consecutives iterations, then returns 1, else 0
+ * @brief Checks if the centroids of the clusters are the same between consecutive iterations
  * @param clusters_old Copy of previous clusters' version
  * @param clusters_new New clusters' version'
  * @param csize Size of cluster's vector
@@ -80,6 +87,6 @@ void copy_clusters(POINT* cluster, POINT* cluster_to_copy, int csize);
  * @param n_samples Number of samples
  * @param k_clusters Number of clusters
  * @param clusters Clusters' vector
- * @param iterations Number of iterations done by the algorithm
+ * @param iterations Iterations done while calculating centroids and assigment data values in a loop
  */
 void print_output(int n_samples, int k_clusters, POINT* clusters, int iterations);
