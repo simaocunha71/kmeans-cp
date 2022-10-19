@@ -25,7 +25,7 @@ void fill(POINT* space, POINT* clusters, int ssize, int csize){
 void assign_cluster(POINT* space, POINT* clusters, int ssize, int csize){
     for(int i = 0; i < csize; i++) {
         for(int j = 0; j < ssize; j++) {
-            double dist = euclidian_distance(space[j],clusters[i]);
+            float dist = euclidian_distance(space[j],clusters[i]);
             if (dist < space[j].min_dist) {
                 space[j].min_dist = dist;
                 space[j].cluster_id = i;
@@ -76,7 +76,8 @@ void calculate_centroids(POINT* space, POINT* clusters, int ssize, int csize){
     }
 
     free(nPoints);
-    free(sumX); free(sumY);
+    free(sumX); 
+    free(sumY);
 }
 
 int compare_centroids(POINT* clusters_old, POINT* clusters_new, int csize){

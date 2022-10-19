@@ -16,6 +16,11 @@ void k_means(int n_samples, int k_clusters){
         equals = compare_centroids(clusters_old, clusters, k_clusters);
     }
     print_output(n_samples, k_clusters, clusters, iterations);
+
+    free(samples_space);
+    free(clusters);
+    free(clusters_old);
+
 }
 
 int main (int argc, char const *argv[]){
