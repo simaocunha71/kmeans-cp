@@ -3,6 +3,8 @@
 #include <math.h>
 
 #define MAX_DIST 10
+#define N_SAMPLES 10000000
+#define K_CLUSTERS 4
 
 /**
  * @brief Create a float array
@@ -27,8 +29,6 @@ int* create_iarray(int size);
  * @param clusters_x Array with x values from clusters
  * @param clusters_y Array with y values from clusters
  * @param clusters_npoints Array with numberOfPoints values from clusters
- * @param ssize Size of space data
- * @param csize Size of clusters
  */
 void fill(float* space_x, float* space_y, float* clusters_x, float* clusters_y, int* clusters_npoints);
 
@@ -52,8 +52,6 @@ float euclidian_distance(float p1_x, float p1_y, float p2_x, float p2_y);
  * @param space_cid Array with clusters'id values from space data
  * @param clusters_x Array with x values from clusters
  * @param clusters_y Array with y values from clusters
- * @param ssize Size of space data
- * @param csize Size of clusters
  */
 void assign_cluster(float* space_x, float* space_y, float* clusters_x, float* clusters_y, int* clusters_npoints);
 
@@ -63,10 +61,9 @@ void assign_cluster(float* space_x, float* space_y, float* clusters_x, float* cl
  * @param clusters_old_y Previous clusters' version - array with y values
  * @param clusters_new_x New clusters' version - array with x values
  * @param clusters_new_y New clusters' version - array with y values
- * @param csize 
  * @return int 1 if true, 0 otherwise
  */
-int compare_centroids(float* clusters_old_x, float* clusters_old_y, float* clusters_new_x, float* clusters_new_y, int csize);
+int compare_centroids(float* clusters_old_x, float* clusters_old_y, float* clusters_new_x, float* clusters_new_y);
 
 /**
  * @brief Copy each clusters' arrays to new ones
@@ -74,17 +71,14 @@ int compare_centroids(float* clusters_old_x, float* clusters_old_y, float* clust
  * @param clusters_y Copy of new clusters' version - array with y values
  * @param clusters_tocopy_x Copy of previous clusters' version - array with x values
  * @param clusters_tocopy_y Copy of previous clusters' version - array with y values
- * @param csize Size of clusters
  */
-void copy_clusters(float* clusters_x, float* clusters_y, float* clusters_tocopy_x, float* clusters_tocopy_y, int csize);
+void copy_clusters(float* clusters_x, float* clusters_y, float* clusters_tocopy_x, float* clusters_tocopy_y);
 
 /**
  * @brief Print the output desired by the teachers
- * @param n_samples Number of samples
- * @param k_clusters Number of clusters
  * @param clusters_x Array with x values from clusters
  * @param clusters_y Array with y values from clusters
  * @param clusters_npoints Array with numberOfPoints values from clusters
  * @param iterations Iterations done while calculating centroids and assigment data values in a loop
  */
-void print_output(int n_samples, int k_clusters, float* clusters_x, float* clusters_y, int* clusters_npoints, int iterations);
+void print_output(float* clusters_x, float* clusters_y, int* clusters_npoints, int iterations);

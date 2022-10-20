@@ -11,24 +11,24 @@ int* create_iarray(int size){
 }
 
 
-void fill(float* space_x, float* space_y, float* space_mindist, int* space_cid, float* clusters_x, float* clusters_y, int* clusters_npoints, int ssize, int csize){
+void fill(float* space_x, float* space_y, float* space_mindist, int* space_cid, float* clusters_x, float* clusters_y, int* clusters_npoints){
     srand(10);
-    for(int i = 0; i < ssize; i++) {
+    for(int i = 0; i < N_SAMPLES; i++) {
         space_x[i] = (float) rand() / RAND_MAX;
         space_y[i] = (float) rand() / RAND_MAX;
         space_mindist[i] = MAX_DIST;
         space_cid[i] = -1;
     }
-    for(int i = 0; i < csize; i++) {
+    for(int i = 0; i < K_CLUSTERS; i++) {
         clusters_x[i] = space_x[i];
         clusters_y[i] = space_y[i];
         clusters_npoints[i] = 0;
     }
 }
 
-void assign_cluster(float* space_x, float* space_y, float* space_mindist, int* space_cid, float* clusters_x, float* clusters_y, int ssize, int csize){
-    for(int i = 0; i < csize; i++) {
-        for(int j = 0; j < ssize; j++) {
+void assign_cluster(float* space_x, float* space_y, float* space_mindist, int* space_cid, float* clusters_x, float* clusters_y){
+    for(int i = 0; i < K_CLUSTERS; i++) {
+        for(int j = 0; j < N_SAMPLES; j++) {
             float dist = euclidian_distance(space_x[j],space_y[j],clusters_x[i],clusters_y[i]);
             if (dist < space_mindist[j]) {
                 space_mindist[j] = dist;
@@ -42,19 +42,19 @@ float euclidian_distance(float p1_x, float p1_y, float p2_x, float p2_y){
     return (p2_y - p1_y) * (p2_y - p1_y) + (p2_x - p1_x) * (p2_x - p1_x);
 }
 
-void calculate_centroids(float* space_x, float* space_y, float* space_mindist, int* space_cid, float* clusters_x, float* clusters_y, int* clusters_npoints, int ssize, int csize){
-    float* sumX = (float *) malloc(csize * sizeof(float));
-    float* sumY = (float *) malloc(csize * sizeof(float));
+void calculate_centroids(float* space_x, float* space_y, float* space_mindist, int* space_cid, float* clusters_x, float* clusters_y, int* clusters_npoints){
+    float* sumX = (float *) malloc(K_CLUSTERS * sizeof(float));
+    float* sumY = (float *) malloc(K_CLUSTERS * sizeof(float));
 
     // Initialise arrays with zeros
-    for (int i = 0; i < csize; i++) {
+    for (int i = 0; i < K_CLUSTERS; i++) {
         clusters_npoints[i] = 0;
         sumX[i] = 0.0;
         sumY[i] = 0.0;
     }
 
     // Iterate over points from data space to append data to centroids
-    for (int i = 0; i < ssize; i++) {
+    for (int i = 0; i < N_SAMPLES; i++) {
         int clusterId = space_cid[i];
         //printf("%d",clusterId);
         clusters_npoints[clusterId] += 1;
@@ -65,7 +65,7 @@ void calculate_centroids(float* space_x, float* space_y, float* space_mindist, i
     }
 
     // Compute the new centroids
-    for (int i = 0; i < csize; i++) {
+    for (int i = 0; i < K_CLUSTERS; i++) {
         //printf("cox%d(%.5f) | ", i,clusters_x[i]); //DEBUG
         //printf("cnpoints%d(%d) | ", i,clusters_npoints[i]); //DEBUG
         clusters_x[i] = sumX[i] / clusters_npoints[i];
@@ -81,25 +81,25 @@ void calculate_centroids(float* space_x, float* space_y, float* space_mindist, i
     free(sumX); free(sumY);
 }
 
-int compare_centroids(float* clusters_old_x, float* clusters_old_y, float* clusters_new_x, float* clusters_new_y, int csize){
+int compare_centroids(float* clusters_old_x, float* clusters_old_y, float* clusters_new_x, float* clusters_new_y){
     int equals = 1;
-    for(int i = 0; i < csize && equals; i++){
+    for(int i = 0; i < K_CLUSTERS && equals; i++){
         if(clusters_old_x[i] != clusters_new_x[i] || clusters_old_y[i] != clusters_new_y[i])
             equals = 0;
     }
     return equals;
 }
 
-void copy_clusters(float* clusters_x, float* clusters_y, float* clusters_tocopy_x, float* clusters_tocopy_y, int csize){
-    for (int i = 0; i < csize; i++){
+void copy_clusters(float* clusters_x, float* clusters_y, float* clusters_tocopy_x, float* clusters_tocopy_y){
+    for (int i = 0; i < K_CLUSTERS; i++){
         clusters_x[i] = clusters_tocopy_x[i];
         clusters_y[i] = clusters_tocopy_y[i];
     }
 }
 
-void print_output(int n_samples, int k_clusters, float* clusters_x, float* clusters_y, int* clusters_npoints, int iterations){
-    printf("N = %d, K = %d\n", n_samples, k_clusters);
-    for(int i = 0; i < k_clusters; i++){
+void print_output(float* clusters_x, float* clusters_y, int* clusters_npoints, int iterations){
+    printf("N = %d, K = %d\n", N_SAMPLES, K_CLUSTERS);
+    for(int i = 0; i < K_CLUSTERS; i++){
         printf("Center: (%.3f, %.3f) : Size: %d\n", clusters_x[i], clusters_y[i], clusters_npoints[i]);
     }
     printf("Iterations: %d\n", iterations);
