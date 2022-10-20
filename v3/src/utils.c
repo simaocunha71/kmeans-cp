@@ -39,7 +39,7 @@ void assign_cluster(float* space_x, float* space_y, float* space_mindist, int* s
 }
 
 float euclidian_distance(float p1_x, float p1_y, float p2_x, float p2_y){
-    return sqrt(pow(p2_y - p1_y, 2) + pow(p2_x - p1_x, 2));
+    return (p2_y - p1_y) * (p2_y - p1_y) + (p2_x - p1_x) * (p2_x - p1_x);
 }
 
 void calculate_centroids(float* space_x, float* space_y, float* space_mindist, int* space_cid, float* clusters_x, float* clusters_y, int* clusters_npoints, int ssize, int csize){
