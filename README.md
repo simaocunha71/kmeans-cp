@@ -28,3 +28,12 @@ v4 : faz o calculo dos centroid enquando dá assign dos pontos. Agora esse assig
     #DIVIDE AS SOMAS DE X e Y DE CADA CLUSTER PELO Nº DE PONTOS
 
 v5: Em vez de 2 arrays (um para x e outro para o y) é apenas 1 e são guardados aos pares [x1,y1,x2,y2,...xn,yn].
+
+
+scp -r <source> a93277@s7edu2.di.uminho.pt
+PjeW46ic
+
+ssh s7edu2.di.uminho.pt -l a93277
+PjeW46ic
+
+module load gcc/7.2.0
