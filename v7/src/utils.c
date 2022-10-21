@@ -43,7 +43,7 @@ int update_clusters(POINT* space, POINT* clusters, int* clusters_npoints){
                 space_cid = i;
             }
         }
-        clusters_npoints[space_cid] += 1;
+        clusters_npoints[space_cid] ++;
         sumX[space_cid] += space[j].x;
         sumY[space_cid] += space[j].y;
     }
@@ -51,38 +51,15 @@ int update_clusters(POINT* space, POINT* clusters, int* clusters_npoints){
     int equals = 1;
 
     for (int i = 0; i < K_CLUSTERS; i++) {
-        //printf("cox%d(%.5f) | ", i,clusters[i*2]); //DEBUG
-        //printf("cnpoints%d(%d) | ", i,clusters_npoints[i]); //DEBUG
         float x_old = clusters[i].x;
         clusters[i].x = sumX[i] / clusters_npoints[i];
-        if(equals && x_old != clusters[i].x) equals = 0;
-        //printf("cnx%d(%.5f) || ", i,clusters[i*2]); //DEBUG
-        //printf("coy%d(%.5f) | ", i,clusters[i*2+1]); //DEBUG
+        
         float y_old = clusters[i].y;
         clusters[i].y = sumY[i] / clusters_npoints[i];
-        if(equals && y_old != clusters[i].y) equals = 0;
-        //printf("cny%d(%.5f)\n", i,clusters[i*2+1]); //DEBUG
+
+        equals = (equals && (x_old == clusters[i].x || y_old == clusters[i].y));
     }
     return equals;
-}
-
-int compare_centroids(POINT* clusters_old, POINT* clusters_new){
-    int equals = 1;
-    for(int i = 0; i < K_CLUSTERS && equals; i++){
-        if(clusters_old[i].x != clusters_new[i].x || clusters_old[i].y != clusters_new[i].y)
-            equals = 0;
-    }
-    return equals;
-}
-
-
-//duplicate array struct in c?
-
-void copy_clusters(POINT* clusters, POINT* clusters_tocopy){
-    for (int i = 0; i < K_CLUSTERS; i++){
-        clusters[i].x = clusters_tocopy[i].x;
-        clusters[i].y = clusters_tocopy[i].y;
-    }
 }
 
 void print_output(POINT* clusters, int* clusters_npoints, int iterations){
