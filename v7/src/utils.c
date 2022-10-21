@@ -1,7 +1,7 @@
 #include "../include/utils.h"
 
 POINT* create_vector(int size){
-    POINT* vec = (POINT*)malloc(size * sizeof(struct point));
+    POINT* vec = (POINT*)malloc(size * sizeof(POINT));
     return vec;
 }
 
@@ -22,7 +22,7 @@ void fill(POINT* space, POINT* clusters){
     }
 }
 
-void update_clusters(POINT* space, POINT* clusters, int* clusters_npoints){
+int update_clusters(POINT* space, POINT* clusters, int* clusters_npoints){
     
     float sumX [K_CLUSTERS];
     float sumY [K_CLUSTERS];
@@ -48,18 +48,22 @@ void update_clusters(POINT* space, POINT* clusters, int* clusters_npoints){
         sumY[space_cid] += space[j].y;
     }
 
+    int equals = 1;
+
     for (int i = 0; i < K_CLUSTERS; i++) {
         //printf("cox%d(%.5f) | ", i,clusters[i*2]); //DEBUG
         //printf("cnpoints%d(%d) | ", i,clusters_npoints[i]); //DEBUG
+        float x_old = clusters[i].x;
         clusters[i].x = sumX[i] / clusters_npoints[i];
-
+        if(equals && x_old != clusters[i].x) equals = 0;
         //printf("cnx%d(%.5f) || ", i,clusters[i*2]); //DEBUG
         //printf("coy%d(%.5f) | ", i,clusters[i*2+1]); //DEBUG
-
+        float y_old = clusters[i].y;
         clusters[i].y = sumY[i] / clusters_npoints[i];
-
+        if(equals && y_old != clusters[i].y) equals = 0;
         //printf("cny%d(%.5f)\n", i,clusters[i*2+1]); //DEBUG
     }
+    return equals;
 }
 
 int compare_centroids(POINT* clusters_old, POINT* clusters_new){
@@ -70,6 +74,9 @@ int compare_centroids(POINT* clusters_old, POINT* clusters_new){
     }
     return equals;
 }
+
+
+//duplicate array struct in c?
 
 void copy_clusters(POINT* clusters, POINT* clusters_tocopy){
     for (int i = 0; i < K_CLUSTERS; i++){
