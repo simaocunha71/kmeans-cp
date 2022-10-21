@@ -21,8 +21,9 @@ void k_means(){
     
     free(space);
     free(clusters);
-    free(clusters_npoints);
     free(clusters_old);
+    free(clusters_npoints);
+    
 }
 
 int main (int argc, char const *argv[]){

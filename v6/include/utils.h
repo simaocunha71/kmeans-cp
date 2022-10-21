@@ -32,26 +32,14 @@ int* create_iarray(int size);
 void fill(POINT* space, POINT* clusters);
 
 /**
- * @brief Calculates euclidian distance between two points.
- * Each point is represented by two floats - one refers to x axis value and the other refers to y axis value
- * The square root was removed because it is a unecessary calculus and very costly
- * @param p1_x First point x value
- * @param p1_y First point y value
- * @param p2_x Second point x value
- * @param p2_y Second point y value
- * @return float Euclidian distance between two points
- */
-float euclidian_distance(float p1_x, float p1_y, float p2_x, float p2_y);
-
-/**
  * @brief Assign each point of space data to a certain cluster:
  * It calculates euclidian distance between data point and cluster and assigns point to the closest cluster (minimum distance)
  * Also, it calculates new centroids
- * @param space Array with values from space data
- * @param clusters Array with values from clusters
+ * @param space Point vector
+ * @param clusters Cluster vector
  * @param clusters_npoints Array with numberOfPoints values from clusters
  */
-void update_clusters(float* space, float* clusters, int* clusters_npoints);
+void update_clusters(POINT* space, POINT* clusters, int* clusters_npoints);
 
 /**
  * @brief Checks if the centroids of the clusters are the same between consecutive iterations
@@ -59,19 +47,19 @@ void update_clusters(float* space, float* clusters, int* clusters_npoints);
  * @param clusters_new New clusters' version
  * @return int 1 if true, 0 otherwise
  */
-int compare_centroids(float* clusters_old, float* clusters_new);
+int compare_centroids(POINT* clusters_old, POINT* clusters_new);
 
 /**
  * @brief Copy each clusters' arrays to new ones
- * @param clusters Copy of new clusters' version
- * @param clusters_tocopy Copy of previous clusters' version
+ * @param clusters New cluster
+ * @param clusters_tocopy Old cluster
  */
-void copy_clusters(float* clusters, float* clusters_tocopy);
+void copy_clusters(POINT* clusters, POINT* clusters_tocopy);
 
 /**
  * @brief Print the output desired by the teachers
- * @param clusters Array with values from clusters
+ * @param clusters Clusters' vector
  * @param clusters_npoints Array with numberOfPoints values from clusters
  * @param iterations Iterations done while calculating centroids and assigment data values in a loop
  */
-void print_output(float* clusters, int* clusters_npoints, int iterations);
+void print_output(POINT* clusters, int* clusters_npoints, int iterations);
