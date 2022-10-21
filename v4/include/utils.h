@@ -34,6 +34,7 @@ void fill(float* space_x, float* space_y, float* clusters_x, float* clusters_y, 
 /**
  * @brief Calculates euclidian distance between two points.
  * Each point is represented by two floats - one refers to x axis value and the other refers to y axis value
+ * The square root was removed because it is a unecessary calculus and very costly
  * @param p1_x First point x value
  * @param p1_y First point y value
  * @param p2_x Second point x value
@@ -45,6 +46,7 @@ float euclidian_distance(float p1_x, float p1_y, float p2_x, float p2_y);
 /**
  * @brief Assign each point of space data to a certain cluster:
  * It calculates euclidian distance between data point and cluster and assigns point to the closest cluster (minimum distance)
+ * Also, it calculates new centroids
  * @param space_x Array with x values from space data
  * @param space_y Array with y values from space data
  * @param space_mindist Array with minDistance values from space data
@@ -52,7 +54,7 @@ float euclidian_distance(float p1_x, float p1_y, float p2_x, float p2_y);
  * @param clusters_x Array with x values from clusters
  * @param clusters_y Array with y values from clusters
  */
-void assign_cluster(float* space_x, float* space_y, float* clusters_x, float* clusters_y, int* clusters_npoints);
+void update_clusters(float* space_x, float* space_y, float* clusters_x, float* clusters_y, int* clusters_npoints);
 
 /**
  * @brief Checks if the centroids of the clusters are the same between consecutive iterations

@@ -24,7 +24,7 @@ void fill(float* space_x, float* space_y, float* clusters_x, float* clusters_y, 
     }
 }
 
-void assign_cluster(float* space_x, float* space_y, float* clusters_x, float* clusters_y, int* clusters_npoints){
+void update_clusters(float* space_x, float* space_y, float* clusters_x, float* clusters_y, int* clusters_npoints){
     
     float sumX [K_CLUSTERS];
     float sumY [K_CLUSTERS];

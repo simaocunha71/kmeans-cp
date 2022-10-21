@@ -17,7 +17,7 @@ void k_means(){
         iterations++;
         //printf("***Iteration %d***\n",iterations); //DEBUG
         copy_clusters(clusters_old_x,clusters_old_y, clusters_x,clusters_y);
-        assign_cluster(space_x,space_y, clusters_x,clusters_y, clusters_npoints);
+        update_clusters(space_x,space_y, clusters_x,clusters_y, clusters_npoints);
         equals = compare_centroids(clusters_old_x,clusters_old_y, clusters_x,clusters_y);
     }
     print_output(clusters_x,clusters_y,clusters_npoints, iterations);
