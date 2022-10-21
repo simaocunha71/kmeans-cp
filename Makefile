@@ -1,38 +1,80 @@
+V1=v1/
+V2=v2/
+V3=v3/
+V4=v4/
+V5=v5/
+V6=v6/
 CC=gcc
+BIN=bin/
+SRC=src/
+INCLUDES=include/
+EXEC=k_means
 CFLAGS=-Wall -O2
+.DEFAULT_GOAL=k_means	
 
-all: v1 v2 v3 v4 v5
+clean: clean-v1 clean-v2 clean-v3 clean-v4 clean-v5 clean-v6
+all: v1 v2 v3 v4 v5 v6
+run: run-v1 run-v2 run-v3 run-v4 run-v5 run-v6
 
+v1:$(V1)$(SRC)k_means.c $(V1)$(BIN)utils.o
+		$(CC) $(CFLAGS) $(V1)$(SRC)k_means.c $(V1)$(BIN)utils.o -o $(V1)$(BIN)$(EXEC) -lm
+		
+$(V1)$(BIN)utils.o: $(V1)$(SRC)utils.c $(V1)$(INCLUDES)utils.h
+		$(CC) $(CFLAGS) -c $(V1)$(SRC)utils.c -o $(V1)$(BIN)utils.o
 
-v1: v1/src/k_means.c
-	@echo "> Compiling V1..."
-	$(CC) $(CFLAGS) -c v1/src/utils.c -o v1/bin/utils.o
-	$(CC) $(CFLAGS) v1/src/k_means.c v1/bin/utils.o -o v1/bin/kmeans -lm
+v2:$(V2)$(SRC)k_means.c $(V2)$(BIN)utils.o
+		$(CC) $(CFLAGS) $(V2)$(SRC)k_means.c $(V2)$(BIN)utils.o -o $(V2)$(BIN)$(EXEC) -lm
+		
+$(V2)$(BIN)utils.o: $(V2)$(SRC)utils.c $(V2)$(INCLUDES)utils.h
+		$(CC) $(CFLAGS) -c $(V2)$(SRC)utils.c -o $(V2)$(BIN)utils.o
+	
+v3:$(V3)$(SRC)k_means.c $(V3)$(BIN)utils.o
+		$(CC) $(CFLAGS) $(V3)$(SRC)k_means.c $(V3)$(BIN)utils.o -o $(V3)$(BIN)$(EXEC)
+		
+$(V3)$(BIN)utils.o: $(V3)$(SRC)utils.c $(V3)$(INCLUDES)utils.h
+		$(CC) $(CFLAGS) -c $(V3)$(SRC)utils.c -o $(V3)$(BIN)utils.o
 
+v4:$(V4)$(SRC)k_means.c $(V4)$(BIN)utils.o
+		$(CC) $(CFLAGS) $(V4)$(SRC)k_means.c $(V4)$(BIN)utils.o -o $(V4)$(BIN)$(EXEC)
+		
+$(V4)$(BIN)utils.o: $(V4)$(SRC)utils.c $(V4)$(INCLUDES)utils.h
+		$(CC) $(CFLAGS) -c $(V4)$(SRC)utils.c -o $(V4)$(BIN)utils.o
 
+v5:$(V5)$(SRC)k_means.c $(V5)$(BIN)utils.o
+		$(CC) $(CFLAGS) $(V5)$(SRC)k_means.c $(V5)$(BIN)utils.o -o $(V5)$(BIN)$(EXEC)
+		
+$(V5)$(BIN)utils.o: $(V5)$(SRC)utils.c $(V5)$(INCLUDES)utils.h
+		$(CC) $(CFLAGS) -c $(V5)$(SRC)utils.c -o $(V5)$(BIN)utils.o
 
-v2: v2/src/k_means.c
-	@echo "> Compiling V2..."
-	$(CC) $(CFLAGS) -c v2/src/utils.c -o v2/bin/utils.o
-	$(CC) $(CFLAGS) v2/src/k_means.c v2/bin/utils.o -o v2/bin/kmeans -lm
+v6:$(V6)$(SRC)k_means.c $(V6)$(BIN)utils.o
+		$(CC) $(CFLAGS) $(V6)$(SRC)k_means.c $(V6)$(BIN)utils.o -o $(V6)$(BIN)$(EXEC)
+		
+$(V6)$(BIN)utils.o: $(V6)$(SRC)utils.c $(V6)$(INCLUDES)utils.h
+		$(CC) $(CFLAGS) -c $(V6)$(SRC)utils.c -o $(V6)$(BIN)utils.o
 
+clean-v1:
+		rm -r $(V1)bin/*
+clean-v2:
+		rm -r $(V2)bin/*
+clean-v3:
+		rm -r $(V3)bin/*
+clean-v4:
+		rm -r $(V4)bin/*
+clean-v5:
+		rm -r $(V5)bin/*
+clean-v6:
+		rm -r $(V6)bin/*
 
+run-v1:
+		time ./$(V1)$(BIN)$(EXEC)
+run-v2:
+		time ./$(V2)$(BIN)$(EXEC)
+run-v3:
+		time ./$(V3)$(BIN)$(EXEC)
+run-v4:
+		time ./$(V4)$(BIN)$(EXEC)
+run-v5:
+		time ./$(V5)$(BIN)$(EXEC)
+run-v6:
+		time ./$(V6)$(BIN)$(EXEC)
 
-v3: v3/src/k_means.c
-	@echo "> Compiling V3..."
-	$(CC) $(CFLAGS) -c v3/src/utils.c -o v3/bin/utils.o
-	$(CC) $(CFLAGS) v3/src/k_means.c v3/bin/utils.o -o v3/bin/kmeans
-
-
-
-v4: v4/src/k_means.c
-	@echo "> Compiling V4..."
-	$(CC) $(CFLAGS) -c v4/src/utils.c -o v4/bin/utils.o
-	$(CC) $(CFLAGS) v4/src/k_means.c v4/bin/utils.o -o v4/bin/kmeans
-
-
-
-v5: v5/src/k_means.c
-	@echo "> Compiling V5..."
-	$(CC) $(CFLAGS) -c v5/src/utils.c -o v5/bin/utils.o
-	$(CC) $(CFLAGS) v5/src/k_means.c v5/bin/utils.o -o v5/bin/kmeans

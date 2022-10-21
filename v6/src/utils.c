@@ -1,8 +1,8 @@
 #include "../include/utils.h"
 
-float* create_farray(int size){
-    float* arr = (float*)malloc(size * sizeof(float));
-    return arr;
+POINT* create_vector(int size){
+    POINT* vec = (POINT*)malloc(size * sizeof(struct point));
+    return vec;
 }
 
 int* create_iarray(int size){
@@ -10,16 +10,15 @@ int* create_iarray(int size){
     return arr;
 }
 
-
-void fill(float* space, float* clusters){
+void fill(POINT* space, POINT* clusters){
     srand(10);
-    for(int i = 0; i < N_SAMPLES*2; i+=2) {
-        space[i] = (float) rand() / RAND_MAX;
-        space[i+1] = (float) rand() / RAND_MAX;
+    for(int i = 0; i < N_SAMPLES; i++) {
+        space[i].x = (float) rand() / RAND_MAX;
+        space[i].y = (float) rand() / RAND_MAX;
     }
-    for(int i = 0; i < K_CLUSTERS*2; i+=2) {
-        clusters[i] = space[i];
-        clusters[i+1] = space[i+1];
+    for(int i = 0; i < K_CLUSTERS*2; i++) {
+        clusters[i].x = space[i].x;
+        clusters[i].y = space[i].y;
     }
 }
 

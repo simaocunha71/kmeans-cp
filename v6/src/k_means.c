@@ -2,9 +2,9 @@
 
 void k_means(){
 
-    float* space = create_farray(N_SAMPLES*2);
-    float* clusters = create_farray(K_CLUSTERS*2);
-    float* clusters_old = create_farray(K_CLUSTERS*2);
+    POINT* space = create_vector(N_SAMPLES);
+    POINT* clusters = create_vector(K_CLUSTERS);
+    POINT* clusters_old = create_vector(K_CLUSTERS);
     int* clusters_npoints = create_iarray(N_SAMPLES);
     
     fill(space,clusters);

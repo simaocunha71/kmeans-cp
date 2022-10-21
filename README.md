@@ -37,3 +37,7 @@ ssh s7edu2.di.uminho.pt -l a93277
 PjeW46ic
 
 module load gcc/7.2.0
+
+srun --partition=cpar perf stat -e instructions,cycles make run
+
+srun --partition=cpar perf stat -e L1-dcache-load-misses,instructions,cycles  -M cpi  make run

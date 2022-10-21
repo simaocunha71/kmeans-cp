@@ -15,7 +15,7 @@ void k_means(){
         calculate_centroids(samples_space, clusters);
         equals = compare_centroids(clusters_old, clusters);
     }
-    print_output(clusters, iterations);
+    print_output(clusters, iterations-1);
 
     free(samples_space);
     free(clusters);

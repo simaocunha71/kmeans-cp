@@ -23,7 +23,7 @@ void k_means(){
         calculate_centroids(space_x,space_y, space_mindist,space_cid, clusters_x,clusters_y,clusters_npoints);
         equals = compare_centroids(clusters_old_x,clusters_old_y, clusters_x,clusters_y);
     }
-    print_output(clusters_x,clusters_y,clusters_npoints, iterations);
+    print_output(clusters_x,clusters_y,clusters_npoints, iterations-1);
     
     free(space_x);
     free(space_y);
