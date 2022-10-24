@@ -5,6 +5,7 @@ V4=v4/
 V5=v5/
 V6=v6/
 V7=v7/
+V8=v8/
 CC=gcc
 BIN=bin/
 SRC=src/
@@ -13,9 +14,9 @@ EXEC=k_means
 CFLAGS=-Wall -O2
 .DEFAULT_GOAL=all	
 
-clean: clean-v1 clean-v2 clean-v3 clean-v4 clean-v5 clean-v6 clean-v7
-all: v1 v2 v3 v4 v5 v6 v7
-run: run-v1 run-v2 run-v3 run-v4 run-v5 run-v6 run-v7
+clean: clean-v1 clean-v2 clean-v3 clean-v4 clean-v5 clean-v6 clean-v7 clean-v8
+all: v1 v2 v3 v4 v5 v6 v7 v8
+run: run-v1 run-v2 run-v3 run-v4 run-v5 run-v6 run-v7 run-v8
 
 v1:$(V1)$(SRC)k_means.c $(V1)$(BIN)utils.o
 		$(CC) $(CFLAGS) $(V1)$(SRC)k_means.c $(V1)$(BIN)utils.o -o $(V1)$(BIN)$(EXEC) -lm
@@ -59,6 +60,12 @@ v7:$(V7)$(SRC)k_means.c $(V7)$(BIN)utils.o
 $(V7)$(BIN)utils.o: $(V7)$(SRC)utils.c $(V7)$(INCLUDES)utils.h
 		$(CC) $(CFLAGS) -c $(V7)$(SRC)utils.c -o $(V7)$(BIN)utils.o
 
+v8:$(V8)$(SRC)k_means.c $(V8)$(BIN)utils.o
+		$(CC) $(CFLAGS) $(V8)$(SRC)k_means.c $(V8)$(BIN)utils.o -o $(V8)$(BIN)$(EXEC)
+		
+$(V8)$(BIN)utils.o: $(V8)$(SRC)utils.c $(V8)$(INCLUDES)utils.h
+		$(CC) $(CFLAGS) -c $(V8)$(SRC)utils.c -o $(V8)$(BIN)utils.o
+
 clean-v1:
 		rm -r $(V1)bin/*
 clean-v2:
@@ -73,6 +80,8 @@ clean-v6:
 		rm -r $(V6)bin/*
 clean-v7:
 		rm -r $(V7)bin/*
+clean-v8:
+		rm -r $(V8)bin/*
 
 run-v1:
 		time ./$(V1)$(BIN)$(EXEC)
@@ -88,4 +97,5 @@ run-v6:
 		time ./$(V6)$(BIN)$(EXEC)
 run-v7:
 		time ./$(V7)$(BIN)$(EXEC)
-
+run-v8:
+		time ./$(V8)$(BIN)$(EXEC)
