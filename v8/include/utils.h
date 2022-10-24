@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX_DIST 10
 #define N_SAMPLES 10000000
 #define K_CLUSTERS 4
 

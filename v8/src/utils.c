@@ -24,11 +24,9 @@ void fill(POINT* space, POINT* clusters){
 }
 
 int update_clusters(POINT* space, POINT* clusters, int* clusters_npoints){
-    
     float sumX [K_CLUSTERS];
     float sumY [K_CLUSTERS];
     float space_dist[4];
-    float sample_x[4],sample_y[4];
     float dist[4];
     int space_cid[4];
     for (int i = 0; i < K_CLUSTERS; i++) {
@@ -43,25 +41,15 @@ int update_clusters(POINT* space, POINT* clusters, int* clusters_npoints){
         space_cid[2] = 0;
         space_cid[3] = 0;
 
-        sample_x[0] = space[j].x;
-        sample_x[1] = space[j+1].x;
-        sample_x[2] = space[j+2].x;
-        sample_x[3] = space[j+3].x;
-
-        sample_y[0] = space[j].y;
-        sample_y[1] = space[j+1].y;
-        sample_y[2] = space[j+2].y;
-        sample_y[3] = space[j+3].y;
-
-        space_dist[0] = (clusters[0].y - sample_y[0]) * (clusters[0].y - sample_y[0]) + (clusters[0].x - sample_x[0]) * (clusters[0].x - sample_x[0]);
-        space_dist[1] = (clusters[0].y - sample_y[1]) * (clusters[0].y - sample_y[1]) + (clusters[0].x - sample_x[1]) * (clusters[0].x - sample_x[1]);
-        space_dist[2] = (clusters[0].y - sample_y[2]) * (clusters[0].y - sample_y[2]) + (clusters[0].x - sample_x[2]) * (clusters[0].x - sample_x[2]);
-        space_dist[3] = (clusters[0].y - sample_y[3]) * (clusters[0].y - sample_y[3]) + (clusters[0].x - sample_x[3]) * (clusters[0].x - sample_x[3]);
+        space_dist[0] = (clusters[0].y - space[j].y) * (clusters[0].y - space[j].y) + (clusters[0].x - space[j].x) * (clusters[0].x - space[j].x);
+        space_dist[1] = (clusters[0].y - space[j+1].y) * (clusters[0].y - space[j+1].y) + (clusters[0].x - space[j+1].x) * (clusters[0].x - space[j+1].x);
+        space_dist[2] = (clusters[0].y - space[j+2].y) * (clusters[0].y - space[j+2].y) + (clusters[0].x - space[j+2].x) * (clusters[0].x - space[j+2].x);
+        space_dist[3] = (clusters[0].y - space[j+3].y) * (clusters[0].y - space[j+3].y) + (clusters[0].x - space[j+3].x) * (clusters[0].x - space[j+3].x);
         for (int k = 1; k < K_CLUSTERS; k++){
-            dist[0] = (clusters[k].y - sample_y[0]) * (clusters[k].y - sample_y[0]) + (clusters[k].x - sample_x[0]) * (clusters[k].x - sample_x[0]);
-            dist[1] = (clusters[k].y - sample_y[1]) * (clusters[k].y - sample_y[1]) + (clusters[k].x - sample_x[1]) * (clusters[k].x - sample_x[1]);
-            dist[2] = (clusters[k].y - sample_y[2]) * (clusters[k].y - sample_y[2]) + (clusters[k].x - sample_x[2]) * (clusters[k].x - sample_x[2]);
-            dist[3] = (clusters[k].y - sample_y[3]) * (clusters[k].y - sample_y[3]) + (clusters[k].x - sample_x[3]) * (clusters[k].x - sample_x[3]);
+            dist[0] = (clusters[k].y - space[j].y) * (clusters[k].y - space[j].y) + (clusters[k].x - space[j].x) * (clusters[k].x - space[j].x);
+            dist[1] = (clusters[k].y - space[j+1].y) * (clusters[k].y - space[j+1].y) + (clusters[k].x - space[j+1].x) * (clusters[k].x - space[j+1].x);
+            dist[2] = (clusters[k].y - space[j+2].y) * (clusters[k].y - space[j+2].y) + (clusters[k].x - space[j+2].x) * (clusters[k].x - space[j+2].x);
+            dist[3] = (clusters[k].y - space[j+3].y) * (clusters[k].y - space[j+3].y) + (clusters[k].x - space[j+3].x) * (clusters[k].x - space[j+3].x);
             if(dist[0] < space_dist[0]){
                 space_dist[0] = dist[0];
                 space_cid[0] = k;
@@ -80,15 +68,15 @@ int update_clusters(POINT* space, POINT* clusters, int* clusters_npoints){
             }
         }
         
-        sumX[space_cid[0]] += sample_x[0];
-        sumX[space_cid[1]] += sample_x[1];
-        sumX[space_cid[2]] += sample_x[2];
-        sumX[space_cid[3]] += sample_x[3];
+        sumX[space_cid[0]] += space[j].x;
+        sumX[space_cid[1]] += space[j+1].x;
+        sumX[space_cid[2]] += space[j+2].x;
+        sumX[space_cid[3]] += space[j+3].x;
 
-        sumY[space_cid[0]] += sample_y[0];
-        sumY[space_cid[1]] += sample_y[1];
-        sumY[space_cid[2]] += sample_y[2];
-        sumY[space_cid[3]] += sample_y[3];
+        sumY[space_cid[0]] += space[j].y;
+        sumY[space_cid[1]] += space[j+1].y;
+        sumY[space_cid[2]] += space[j+2].y;
+        sumY[space_cid[3]] += space[j+3].y;
 
         clusters_npoints[space_cid[0]]++;
         clusters_npoints[space_cid[1]]++;
@@ -99,11 +87,9 @@ int update_clusters(POINT* space, POINT* clusters, int* clusters_npoints){
     }
     for(;j < N_SAMPLES;j++){
         space_cid[0] = 0;
-        sample_x[0] = space[j].x;
-        sample_y[0] = space[j].y;
-        space_dist[0] = (clusters[0].y - sample_y[0]) * (clusters[0].y - sample_y[0]) + (clusters[0].x - sample_x[0]) * (clusters[0].x - sample_x[0]);
+        space_dist[0] = (clusters[0].y - space[j].y) * (clusters[0].y - space[j].y) + (clusters[0].x - space[j].x) * (clusters[0].x - space[j].x);
         for (int k = 0; k < K_CLUSTERS; k++){
-            dist[0] = (clusters[k].y - sample_y[0]) * (clusters[k].y - sample_y[0]) + (clusters[k].x - sample_x[0]) * (clusters[k].x - sample_x[0]);
+            dist[0] = (clusters[k].y - space[j].y) * (clusters[k].y - space[j].y) + (clusters[k].x - space[j].x) * (clusters[k].x - space[j].x);
             if(dist[0] < space_dist[0]){
                 space_dist[0] = dist[0];
                 space_cid[0] = k;
