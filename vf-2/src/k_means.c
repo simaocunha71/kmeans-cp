@@ -1,35 +1,25 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "../include/utils.h"
 
 int main (int argc, char const *argv[]){
-    
-    float* space_x = create_farray(N_SAMPLES);
-    float* space_y = create_farray(N_SAMPLES);
-    float* clusters_x = create_farray(K_CLUSTERS);
-    float* clusters_y = create_farray(K_CLUSTERS);
+    POINT* samples_space = create_vector(N_SAMPLES);
+    POINT* clusters = create_vector(K_CLUSTERS);
+    int* samples_id = create_iarray(N_SAMPLES);
     int* clusters_npoints = create_iarray(K_CLUSTERS);
-    int* space_id = create_iarray(N_SAMPLES);
-    
-    fill(space_x,space_y,clusters_x,clusters_y,space_id);
+    fill(samples_space, clusters, samples_id);
     int iterations = 0;
-
-    int converged = 0;
+    int converged;
+    
     do{
         //printf("***Iteration %d***\n",iterations); //DEBUG
-        converged = update_clusters(space_x,space_y,clusters_x,clusters_y, clusters_npoints,space_id);
+        converged = update_clusters(samples_space, clusters, samples_id, clusters_npoints);
         iterations++;
-    } while(!converged);
+    }while(!converged);
 
+    print_output(clusters, clusters_npoints, iterations-1);
 
-    print_output(clusters_x,clusters_y,clusters_npoints, iterations-1);
-    
-    free(space_x);
-    free(space_y);
-    free(clusters_x);
-    free(clusters_y);
-    free(space_id);
+    free(samples_space);
+    free(clusters);
+    free(samples_id);
     free(clusters_npoints);
-    
     return 0;
 }

@@ -1,11 +1,10 @@
-V1=v1/
-V2=v2/
-V3=v3/
-V4=v4/
-V5=v5/
-V6=v6/
-V7=v7/
-V8=v8/
+VA=va/
+VB=vb/
+VC=vc/
+VD=vd/
+VE=ve/
+VF2=vf-2/
+VF4=vf-4/
 CC=gcc
 BIN=bin/
 SRC=src/
@@ -14,88 +13,79 @@ EXEC=k_means
 CFLAGS=-Wall -O2
 .DEFAULT_GOAL=all	
 
-clean: clean-v1 clean-v2 clean-v3 clean-v4 clean-v5 clean-v6 clean-v7 clean-v8
-all: v1 v2 v3 v4 v5 v6 v7 v8
-run: run-v1 run-v2 run-v3 run-v4 run-v5 run-v6 run-v7 run-v8
+clean: clean-va clean-vb clean-vc clean-vd clean-ve clean-vf2 clean-vf4
+all: va vb vc vd ve vf2 vf4
+run: run-va run-vb run-vc run-vd run-ve run-vf2 run-vf4
 
-v1:$(V1)$(SRC)k_means.c $(V1)$(BIN)utils.o
-		$(CC) $(CFLAGS) $(V1)$(SRC)k_means.c $(V1)$(BIN)utils.o -o $(V1)$(BIN)$(EXEC) -lm
+va:$(VA)$(SRC)k_means.c $(VA)$(BIN)utils.o
+		$(CC) $(CFLAGS) $(VA)$(SRC)k_means.c $(VA)$(BIN)utils.o -o $(VA)$(BIN)$(EXEC) -lm
 		
-$(V1)$(BIN)utils.o: $(V1)$(SRC)utils.c $(V1)$(INCLUDES)utils.h
-		$(CC) $(CFLAGS) -c $(V1)$(SRC)utils.c -o $(V1)$(BIN)utils.o
+$(VA)$(BIN)utils.o: $(VA)$(SRC)utils.c $(VA)$(INCLUDES)utils.h
+		$(CC) $(CFLAGS) -c $(VA)$(SRC)utils.c -o $(VA)$(BIN)utils.o
 
-v2:$(V2)$(SRC)k_means.c $(V2)$(BIN)utils.o
-		$(CC) $(CFLAGS) $(V2)$(SRC)k_means.c $(V2)$(BIN)utils.o -o $(V2)$(BIN)$(EXEC) -lm
+vb:$(VB)$(SRC)k_means.c $(VB)$(BIN)utils.o
+		$(CC) $(CFLAGS) $(VB)$(SRC)k_means.c $(VB)$(BIN)utils.o -o $(VB)$(BIN)$(EXEC) -lm
 		
-$(V2)$(BIN)utils.o: $(V2)$(SRC)utils.c $(V2)$(INCLUDES)utils.h
-		$(CC) $(CFLAGS) -c $(V2)$(SRC)utils.c -o $(V2)$(BIN)utils.o
+$(VB)$(BIN)utils.o: $(VB)$(SRC)utils.c $(VB)$(INCLUDES)utils.h
+		$(CC) $(CFLAGS) -c $(VB)$(SRC)utils.c -o $(VB)$(BIN)utils.o
 	
-v3:$(V3)$(SRC)k_means.c $(V3)$(BIN)utils.o
-		$(CC) $(CFLAGS) $(V3)$(SRC)k_means.c $(V3)$(BIN)utils.o -o $(V3)$(BIN)$(EXEC)
+vc:$(VC)$(SRC)k_means.c $(VC)$(BIN)utils.o
+		$(CC) $(CFLAGS) $(VC)$(SRC)k_means.c $(VC)$(BIN)utils.o -o $(VC)$(BIN)$(EXEC)
 		
-$(V3)$(BIN)utils.o: $(V3)$(SRC)utils.c $(V3)$(INCLUDES)utils.h
-		$(CC) $(CFLAGS) -c $(V3)$(SRC)utils.c -o $(V3)$(BIN)utils.o
+$(VC)$(BIN)utils.o: $(VC)$(SRC)utils.c $(VC)$(INCLUDES)utils.h
+		$(CC) $(CFLAGS) -c $(VC)$(SRC)utils.c -o $(VC)$(BIN)utils.o
 
-v4:$(V4)$(SRC)k_means.c $(V4)$(BIN)utils.o
-		$(CC) $(CFLAGS) $(V4)$(SRC)k_means.c $(V4)$(BIN)utils.o -o $(V4)$(BIN)$(EXEC)
+vd:$(VD)$(SRC)k_means.c $(VD)$(BIN)utils.o
+		$(CC) $(CFLAGS) $(VD)$(SRC)k_means.c $(VD)$(BIN)utils.o -o $(VD)$(BIN)$(EXEC)
 		
-$(V4)$(BIN)utils.o: $(V4)$(SRC)utils.c $(V4)$(INCLUDES)utils.h
-		$(CC) $(CFLAGS) -c $(V4)$(SRC)utils.c -o $(V4)$(BIN)utils.o
+$(VD)$(BIN)utils.o: $(VD)$(SRC)utils.c $(VD)$(INCLUDES)utils.h
+		$(CC) $(CFLAGS) -c $(VD)$(SRC)utils.c -o $(VD)$(BIN)utils.o
 
-v5:$(V5)$(SRC)k_means.c $(V5)$(BIN)utils.o
-		$(CC) $(CFLAGS) $(V5)$(SRC)k_means.c $(V5)$(BIN)utils.o -o $(V5)$(BIN)$(EXEC)
+ve:$(VE)$(SRC)k_means.c $(VE)$(BIN)utils.o
+		$(CC) $(CFLAGS) $(VE)$(SRC)k_means.c $(VE)$(BIN)utils.o -o $(VE)$(BIN)$(EXEC)
 		
-$(V5)$(BIN)utils.o: $(V5)$(SRC)utils.c $(V5)$(INCLUDES)utils.h
-		$(CC) $(CFLAGS) -c $(V5)$(SRC)utils.c -o $(V5)$(BIN)utils.o
+$(VE)$(BIN)utils.o: $(VE)$(SRC)utils.c $(VE)$(INCLUDES)utils.h
+		$(CC) $(CFLAGS) -c $(VE)$(SRC)utils.c -o $(VE)$(BIN)utils.o
 
-v6:$(V6)$(SRC)k_means.c $(V6)$(BIN)utils.o
-		$(CC) $(CFLAGS) $(V6)$(SRC)k_means.c $(V6)$(BIN)utils.o -o $(V6)$(BIN)$(EXEC)
+vf2:$(VF2)$(SRC)k_means.c $(VF2)$(BIN)utils.o
+		$(CC) $(CFLAGS) $(VF2)$(SRC)k_means.c $(VF2)$(BIN)utils.o -o $(VF2)$(BIN)$(EXEC)
 		
-$(V6)$(BIN)utils.o: $(V6)$(SRC)utils.c $(V6)$(INCLUDES)utils.h
-		$(CC) $(CFLAGS) -c $(V6)$(SRC)utils.c -o $(V6)$(BIN)utils.o
+$(VF2)$(BIN)utils.o: $(VF2)$(SRC)utils.c $(VF2)$(INCLUDES)utils.h
+		$(CC) $(CFLAGS) -c $(VF2)$(SRC)utils.c -o $(VF2)$(BIN)utils.o
 
-v7:$(V7)$(SRC)k_means.c $(V7)$(BIN)utils.o
-		$(CC) $(CFLAGS) $(V7)$(SRC)k_means.c $(V7)$(BIN)utils.o -o $(V7)$(BIN)$(EXEC)
+vf4:$(VF4)$(SRC)k_means.c $(VF4)$(BIN)utils.o
+		$(CC) $(CFLAGS) $(VF4)$(SRC)k_means.c $(VF4)$(BIN)utils.o -o $(VF4)$(BIN)$(EXEC)
 		
-$(V7)$(BIN)utils.o: $(V7)$(SRC)utils.c $(V7)$(INCLUDES)utils.h
-		$(CC) $(CFLAGS) -c $(V7)$(SRC)utils.c -o $(V7)$(BIN)utils.o
+$(VF4)$(BIN)utils.o: $(VF4)$(SRC)utils.c $(VF4)$(INCLUDES)utils.h
+		$(CC) $(CFLAGS) -c $(VF4)$(SRC)utils.c -o $(VF4)$(BIN)utils.o
 
-v8:$(V8)$(SRC)k_means.c $(V8)$(BIN)utils.o
-		$(CC) $(CFLAGS) $(V8)$(SRC)k_means.c $(V8)$(BIN)utils.o -o $(V8)$(BIN)$(EXEC)
-		
-$(V8)$(BIN)utils.o: $(V8)$(SRC)utils.c $(V8)$(INCLUDES)utils.h
-		$(CC) $(CFLAGS) -c $(V8)$(SRC)utils.c -o $(V8)$(BIN)utils.o
 
-clean-v1:
-		rm -r $(V1)bin/*
-clean-v2:
-		rm -r $(V2)bin/*
-clean-v3:
-		rm -r $(V3)bin/*
-clean-v4:
-		rm -r $(V4)bin/*
-clean-v5:
-		rm -r $(V5)bin/*
-clean-v6:
-		rm -r $(V6)bin/*
-clean-v7:
-		rm -r $(V7)bin/*
-clean-v8:
-		rm -r $(V8)bin/*
+clean-va:
+		rm -r $(VA)bin/*
+clean-vb:
+		rm -r $(VB)bin/*
+clean-vc:
+		rm -r $(VC)bin/*
+clean-vd:
+		rm -r $(VD)bin/*
+clean-ve:
+		rm -r $(VE)bin/*
+clean-vf2:
+		rm -r $(VF2)bin/*
+clean-vf4:
+		rm -r $(VF4)bin/*
 
-run-v1:
-		time ./$(V1)$(BIN)$(EXEC)
-run-v2:
-		time ./$(V2)$(BIN)$(EXEC)
-run-v3:
-		time ./$(V3)$(BIN)$(EXEC)
-run-v4:
-		time ./$(V4)$(BIN)$(EXEC)
-run-v5:
-		time ./$(V5)$(BIN)$(EXEC)
-run-v6:
-		time ./$(V6)$(BIN)$(EXEC)
-run-v7:
-		time ./$(V7)$(BIN)$(EXEC)
-run-v8:
-		time ./$(V8)$(BIN)$(EXEC)
+run-va:
+		time ./$(VA)$(BIN)$(EXEC)
+run-vb:
+		time ./$(VB)$(BIN)$(EXEC)
+run-vc:
+		time ./$(VC)$(BIN)$(EXEC)
+run-vd:
+		time ./$(VD)$(BIN)$(EXEC)
+run-ve:
+		time ./$(VE)$(BIN)$(EXEC)
+run-vf2:
+		time ./$(VF2)$(BIN)$(EXEC)
+run-vf4:
+		time ./$(VF4)$(BIN)$(EXEC)

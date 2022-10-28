@@ -7,12 +7,12 @@ int main (int argc, char const *argv[]){
     int* clusters_npoints = create_iarray(K_CLUSTERS);
     fill(samples_space, clusters, samples_id);
     int iterations = 0;
-    int converged = 0;
-    while(!converged){
+    int converged;
+    do{
         //printf("***Iteration %d***\n",iterations); //DEBUG
         converged = update_clusters(samples_space, clusters, samples_id, clusters_npoints);
         iterations++;
-    }
+    }while(!converged);
     print_output(clusters, clusters_npoints, iterations-1);
 
     free(samples_space);

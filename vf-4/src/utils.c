@@ -1,8 +1,8 @@
 #include "../include/utils.h"
 
-float* create_farray(int size){
-    float* arr = (float*)malloc(size * sizeof(float));
-    return arr;
+POINT* create_vector(int size){
+    POINT* vec = (POINT*)malloc(size * sizeof(struct point));
+    return vec;
 }
 
 int* create_iarray(int size){
@@ -10,130 +10,126 @@ int* create_iarray(int size){
     return arr;
 }
 
-void fill(float* space_x,float* space_y, float* clusters_x,float* clusters_y,int* space_id){
+
+void fill(POINT* space, POINT* clusters, int* samples_id){
     srand(10);
-    int i;
-    for(i = 0; i < N_SAMPLES; i++) {
-        space_x[i] = (float) rand() / RAND_MAX;
-        space_y[i] = (float) rand() / RAND_MAX;
-        space_id[i] = -1;
+    for(int i = 0; i < N_SAMPLES; i++) {
+        space[i].x = (float) rand() / RAND_MAX;
+        space[i].y = (float) rand() / RAND_MAX;
+        samples_id[i] = -1;
     }
-    for(i = 0; i < K_CLUSTERS; i++) {
-        clusters_x[i] = space_x[i];
-        clusters_y[i] = space_y[i];
+    for(int i = 0; i < K_CLUSTERS; i++) {
+        clusters[i].x = space[i].x;
+        clusters[i].y = space[i].y;
     }
 }
 
-int update_clusters(float* space_x,float* space_y, float* clusters_x,float* clusters_y, int* clusters_npoints, int* space_id){
-    float sumX [K_CLUSTERS];
-    float sumY [K_CLUSTERS];
+int update_clusters(POINT* space, POINT* clusters, int* samples_id, int* clusters_npoints){
+    float sumX[K_CLUSTERS];
+    float sumY[K_CLUSTERS];
     float min_dist[4];
     float dist[4];
-    int space_id_new[4];
+
+    int sample_id_new[4];
     int converged = 1;
-    float sx[4], sy[4];
-    float cx, cy;
+
+    // Initialise arrays with zeros
     for (int i = 0; i < K_CLUSTERS; i++) {
         clusters_npoints[i] = 0;
         sumX[i] = 0.0;
-        sumY[i] = 0.0;    
+        sumY[i] = 0.0;
     }
-    int j;
-    for(j=0;j < N_SAMPLES-3;j+=4){
-        space_id_new[0] = 0; space_id_new[1] = 0; space_id_new[2] = 0; space_id_new[3] = 0;
-        sx[0] = space_x[j]; sx[1] = space_x[j+1]; sx[2] = space_x[j+2]; sx[3] = space_x[j+3];
-        sy[0] = space_y[j]; sy[1] = space_y[j+1]; sy[2] = space_y[j+2]; sy[3] = space_y[j+3];
-        cx = clusters_x[0];
-        cy = clusters_y[0];
-        min_dist[0] = (cy - sy[0]) * (cy - sy[0]) + (cx - sx[0]) * (cx - sx[0]);
-        min_dist[1] = (cy - sy[1]) * (cy - sy[1]) + (cx - sx[1]) * (cx - sx[1]);
-        min_dist[2] = (cy - sy[2]) * (cy - sy[2]) + (cx - sx[2]) * (cx - sx[2]);
-        min_dist[3] = (cy - sy[3]) * (cy - sy[3]) + (cx - sx[3]) * (cx - sx[3]);
-        for (int k = 1; k < K_CLUSTERS; k++){
-            cx = clusters_x[k];
-            cy = clusters_y[k];
-            dist[0] = (cy - sy[0]) * (cy - sy[0]) + (cx - sx[0]) * (cx - sx[0]);
-            dist[1] = (cy - sy[1]) * (cy - sy[1]) + (cx - sx[1]) * (cx - sx[1]);
-            dist[2] = (cy - sy[2]) * (cy - sy[2]) + (cx - sx[2]) * (cx - sx[2]);
-            dist[3] = (cy - sy[3]) * (cy - sy[3]) + (cx - sx[3]) * (cx - sx[3]);
-            if(dist[0] < min_dist[0]){
+
+
+    //Assign points
+    int n;
+    for(n = 0; n < N_SAMPLES-3; n+=4) {
+        min_dist[0] = (clusters[0].y - space[n].y) * (clusters[0].y - space[n].y) + (clusters[0].x - space[n].x) * (clusters[0].x - space[n].x);
+        min_dist[1] = (clusters[0].y - space[n+1].y) * (clusters[0].y - space[n+1].y) + (clusters[0].x - space[n+1].x) * (clusters[0].x - space[n+1].x);
+        min_dist[2] = (clusters[0].y - space[n+2].y) * (clusters[0].y - space[n+2].y) + (clusters[0].x - space[n+2].x) * (clusters[0].x - space[n+2].x);
+        min_dist[3] = (clusters[0].y - space[n+3].y) * (clusters[0].y - space[n+3].y) + (clusters[0].x - space[n+3].x) * (clusters[0].x - space[n+3].x);
+        sample_id_new[0] = 0;
+        sample_id_new[1] = 0;
+        sample_id_new[2] = 0;
+        sample_id_new[3] = 0;
+        for(int k = 1; k < K_CLUSTERS; k++) {
+            dist[0] = (clusters[k].y - space[n].y) * (clusters[k].y - space[n].y) + (clusters[k].x - space[n].x) * (clusters[k].x - space[n].x);
+            dist[1] = (clusters[k].y - space[n+1].y) * (clusters[k].y - space[n+1].y) + (clusters[k].x - space[n+1].x) * (clusters[k].x - space[n+1].x);
+            dist[2] = (clusters[k].y - space[n+2].y) * (clusters[k].y - space[n+2].y) + (clusters[k].x - space[n+2].x) * (clusters[k].x - space[n+2].x);
+            dist[3] = (clusters[k].y - space[n+3].y) * (clusters[k].y - space[n+3].y) + (clusters[k].x - space[n+3].x) * (clusters[k].x - space[n+3].x);
+            if (dist[0] < min_dist[0]) {
                 min_dist[0] = dist[0];
-                space_id_new[0] = k;
+                sample_id_new[0] = k;
             }
-            if(dist[1] < min_dist[1]){
+            if (dist[1] < min_dist[1]) {
                 min_dist[1] = dist[1];
-                space_id_new[1] = k;
+                sample_id_new[1] = k;
             }
-            if(dist[2] < min_dist[2]){
+            if (dist[2] < min_dist[2]) {
                 min_dist[2] = dist[2];
-                space_id_new[2] = k;
+                sample_id_new[2] = k;
             }
-            if(dist[3] < min_dist[3]){
+            if (dist[3] < min_dist[3]) {
                 min_dist[3] = dist[3];
-                space_id_new[3] = k;
+                sample_id_new[3] = k;
             }
         }
-        clusters_npoints[space_id_new[0]] ++;
-        sumX[space_id_new[0]] += space_x[j];
-        sumY[space_id_new[0]] += space_y[j];
-        clusters_npoints[space_id_new[1]] ++;
-        sumX[space_id_new[1]] += space_x[j+1];
-        sumY[space_id_new[1]] += space_y[j+1];
-        clusters_npoints[space_id_new[2]] ++;
-        sumX[space_id_new[2]] += space_x[j+2];
-        sumY[space_id_new[2]] += space_y[j+2];
-        clusters_npoints[space_id_new[3]] ++;
-        sumX[space_id_new[3]] += space_x[j+3];
-        sumY[space_id_new[3]] += space_y[j+3];
+        clusters_npoints[sample_id_new[0]] ++;
+        sumX[sample_id_new[0]] += space[n].x;
+        sumY[sample_id_new[0]] += space[n].y;
+        clusters_npoints[sample_id_new[1]] ++;
+        sumX[sample_id_new[1]] += space[n+1].x;
+        sumY[sample_id_new[1]] += space[n+1].y;
+        clusters_npoints[sample_id_new[2]] ++;
+        sumX[sample_id_new[2]] += space[n+2].x;
+        sumY[sample_id_new[2]] += space[n+2].y;
+        clusters_npoints[sample_id_new[3]] ++;
+        sumX[sample_id_new[3]] += space[n+3].x;
+        sumY[sample_id_new[3]] += space[n+3].y;
 
-        converged = converged && (space_id_new[0] == space_id[j] && space_id_new[1] == space_id[j+1] && space_id_new[2] == space_id[j+2] && space_id_new[3] == space_id[j+3]);
-        space_id[j] = space_id_new[0];
-        space_id[j+1] = space_id_new[1];
-        space_id[j+2] = space_id_new[2];
-        space_id[j+3] = space_id_new[3];
+        converged = converged && sample_id_new[0] == samples_id[n] && sample_id_new[1] == samples_id[n+1] && sample_id_new[2] == samples_id[n+2] && sample_id_new[3] == samples_id[n+3];
+        samples_id[n] = sample_id_new[0];
+        samples_id[n+1] = sample_id_new[1];
+        samples_id[n+2] = sample_id_new[2];
+        samples_id[n+3] = sample_id_new[3];
     }
-    for(;j < N_SAMPLES;j++){
-        space_id_new[0] = 0;
-        sx[0] = space_x[j];
-        sy[0] = space_y[j];
-        cx = clusters_x[0];
-        cy = clusters_y[0];
-        min_dist[0] = (cy - sy[0]) * (cy - sy[0]) + (cx - sx[0]) * (cx - sx[0]);
-        for (int k = 1; k < K_CLUSTERS; k++){
-            cx = clusters_x[k];
-            cy = clusters_y[k];
-            dist[0] = (cy - sy[0]) * (cy - sy[0]) + (cx - sx[0]) * (cx - sx[0]);
-            if(dist[0] < min_dist[0]){
+    for(; n < N_SAMPLES; n++) {
+        min_dist[0] = (clusters[0].y - space[n].y) * (clusters[0].y - space[n].y) + (clusters[0].x - space[n].x) * (clusters[0].x - space[n].x);
+        sample_id_new[0] = 0;
+        for(int k = 1; k < K_CLUSTERS; k++) {
+            dist[0] = (clusters[k].y - space[n].y) * (clusters[k].y - space[n].y) + (clusters[k].x - space[n].x) * (clusters[k].x - space[n].x);
+            if (dist[0] < min_dist[0]) {
                 min_dist[0] = dist[0];
-                space_id_new[0] = k;
+                sample_id_new[0] = k;
             }
         }
-        clusters_npoints[space_id_new[0]] ++;
-        sumX[space_id_new[0]] += space_x[j];
-        sumY[space_id_new[0]] += space_y[j];
+        clusters_npoints[sample_id_new[0]] ++;
+        sumX[sample_id_new[0]] += space[n].x;
+        sumY[sample_id_new[0]] += space[n].y;
 
-        converged = converged && space_id_new[0] == space_id[j];
-        space_id[j] = space_id_new[0];
+        converged = converged && sample_id_new[0] == samples_id[n];
+        samples_id[n] = sample_id_new[0];
     }
 
-    for (int k = 0; k < K_CLUSTERS; k++) {
-        //printf("cox%d(%.5f) | ", k,clusters_x[k]); //DEBUG
-        //printf("cnpoints%d(%d) | ", k,clusters_npoints[k]); //DEBUG
-        clusters_x[k] = sumX[k] / clusters_npoints[k];
-        
-        //printf("cnx%d(%.5f) || ", k,clusters_x[k]); //DEBUG
-        //printf("coy%d(%.5f) | ", k,clusters_y[k]); //DEBUG
-        clusters_y[k] = sumY[k] / clusters_npoints[k];
 
-        //printf("cny%d(%.5f)\n", k,clusters_y[k]); //DEBUG
+    //Compute new centroids
+    for (int i = 0; i < K_CLUSTERS; i++) {
+        //printf("cox%d(%.5f) | ", i,clusters[i].x); //DEBUG
+        //printf("cnpoints%d(%d) | ", i,clusters_npoints[i]); //DEBUG
+        clusters[i].x = sumX[i] / clusters_npoints[i];
+        //printf("cnx%d(%.5f) || ", i,clusters[i].x); //DEBUG
+        //printf("coy%d(%.5f) | ", i,clusters[i].y); //DEBUG
+        clusters[i].y = sumY[i] / clusters_npoints[i];
+        //printf("cny%d(%.5f)\n", i,clusters[i].y); //DEBUG
     }
+
     return converged;
 }
 
-void print_output(float* clusters_x,float* clusters_y, int* clusters_npoints, int iterations){
+void print_output(POINT* clusters, int* clusters_npoints, int iterations){
     printf("N = %d, K = %d\n", N_SAMPLES, K_CLUSTERS);
     for(int i = 0; i < K_CLUSTERS; i++){
-        printf("Center: (%.3f, %.3f) : Size: %d\n", clusters_x[i], clusters_y[i], clusters_npoints[i]);
+        printf("Center: (%.3f, %.3f) : Size: %d\n", clusters[i].x, clusters[i].y, clusters_npoints[i]);
     }
     printf("Iterations: %d\n", iterations);
 }

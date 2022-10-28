@@ -12,12 +12,12 @@ int main (int argc, char const *argv[]){
 
     fill(space_x, space_y, clusters_x, clusters_y, samples_id);
     int iterations = 0;
-    int converged = 0;
-    while(!converged){
+    int converged;
+    do{
         //printf("***Iteration %d***\n",iterations); //DEBUG
         converged = update_clusters(space_x, space_y, clusters_x, clusters_y, samples_id, clusters_npoints);
         iterations++;
-    }
+    }while(!converged);
     print_output(clusters_x, clusters_y, clusters_npoints, iterations-1);
 
     free(space_x);
