@@ -10,7 +10,6 @@ int main (int argc, char const *argv[]){
     int converged;
     
     do{
-        //printf("***Iteration %d***\n",iterations); //DEBUG
         converged = update_clusters(samples_space, clusters, samples_id, clusters_npoints);
         iterations++;
     }while(!converged);
