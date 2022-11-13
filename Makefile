@@ -3,7 +3,7 @@ BIN=bin/
 SRC=src/
 INCLUDES=include/
 EXEC=k_means
-CFLAGS=-Wall -O2
+CFLAGS=-Wall -O2 -fopenmp
 .DEFAULT_GOAL=k_means	
 THREADS = 2 #Change to a desirable number of threads
 

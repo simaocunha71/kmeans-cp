@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <omp.h>
 
 /**
  * @brief Point struct
@@ -45,6 +46,8 @@ void fill(POINT* space, POINT* clusters, int* samples_id, int N_SAMPLES, int K_C
  * @return int 1 if converged, 0 otherwise
  */
 int update_clusters(POINT* space, POINT* clusters, int* samples_id, int* clusters_npoints, int N_SAMPLES, int K_CLUSTERS);
+
+int update_clusters_parallel(POINT* space, POINT* clusters, int* samples_id, int* clusters_npoints, int N_SAMPLES, int K_CLUSTERS);
 
 /**
  * @brief Print the output desired by the teachers

@@ -25,6 +25,9 @@ void k_means_seq (int N_SAMPLES, int K_CLUSTERS){
 void k_means_par (int N_SAMPLES, int K_CLUSTERS, int THREADS){
     POINT* samples_space = create_vector(N_SAMPLES);
     POINT* clusters = create_vector(K_CLUSTERS);
+
+    omp_set_num_threads(THREADS);
+    
     int* samples_id = create_iarray(N_SAMPLES);
     int* clusters_npoints = create_iarray(K_CLUSTERS);
     fill(samples_space, clusters, samples_id, N_SAMPLES, K_CLUSTERS);
@@ -32,9 +35,9 @@ void k_means_par (int N_SAMPLES, int K_CLUSTERS, int THREADS){
     int converged;
     
     do{
-        converged = update_clusters(samples_space, clusters, samples_id, clusters_npoints, N_SAMPLES, K_CLUSTERS);
+        converged = update_clusters_parallel(samples_space, clusters, samples_id, clusters_npoints, N_SAMPLES, K_CLUSTERS);
         iterations++;
-    }while(!converged);
+    }while(iterations <= 20 && !converged);
 
     print_output(clusters, clusters_npoints, iterations-1, N_SAMPLES, K_CLUSTERS);
 
