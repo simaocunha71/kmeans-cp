@@ -10,7 +10,7 @@ int* create_iarray(int size){
     return arr;
 }
 
-void fill(POINT* space, POINT* clusters, int* samples_id){
+void fill(POINT* space, POINT* clusters, int* samples_id, int N_SAMPLES, int K_CLUSTERS){
     srand(10);
     for(int i = 0; i < N_SAMPLES; i++) {
         space[i].x = (float) rand() / RAND_MAX;
@@ -23,7 +23,7 @@ void fill(POINT* space, POINT* clusters, int* samples_id){
     }
 }
 
-int update_clusters(POINT* space, POINT* clusters, int* samples_id, int* clusters_npoints){
+int update_clusters(POINT* space, POINT* clusters, int* samples_id, int* clusters_npoints, int N_SAMPLES, int K_CLUSTERS){
     float sumX[K_CLUSTERS];
     float sumY[K_CLUSTERS];
     float min_dist[2];
@@ -110,7 +110,7 @@ int update_clusters(POINT* space, POINT* clusters, int* samples_id, int* cluster
     return converged;
 }
 
-void print_output(POINT* clusters, int* clusters_npoints, int iterations){
+void print_output(POINT* clusters, int* clusters_npoints, int iterations, int N_SAMPLES, int K_CLUSTERS){
     printf("N = %d, K = %d\n", N_SAMPLES, K_CLUSTERS);
     for(int i = 0; i < K_CLUSTERS; i++){
         printf("Center: (%.3f, %.3f) : Size: %d\n", clusters[i].x, clusters[i].y, clusters_npoints[i]);
