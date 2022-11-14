@@ -26,10 +26,10 @@ void fill(POINT* space, POINT* clusters, int* samples_id, int N_SAMPLES, int K_C
 int update_clusters(POINT* space, POINT* clusters, int* samples_id, int* clusters_npoints, int N_SAMPLES, int K_CLUSTERS){
     float sumX[K_CLUSTERS];
     float sumY[K_CLUSTERS];
-    float min_dist[2];
-    float dist[2];
+    float min_dist;
+    float dist;
 
-    int sample_id_new[2];
+    int sample_id_new;
     int converged = 1;
 
     // Initialise arrays with zeros
@@ -42,62 +42,29 @@ int update_clusters(POINT* space, POINT* clusters, int* samples_id, int* cluster
 
     //Assign points with loop unrolling with 2 instructions per loop - number of samples odd
     int n;
-    for(n = 0; n < N_SAMPLES-1; n+=2) {
+    for(n = 0; n < N_SAMPLES; n++) {
         //Euclidean distance of two consecutive points for first cluster
-        min_dist[0] = (clusters[0].y - space[n].y) * (clusters[0].y - space[n].y) + (clusters[0].x - space[n].x) * (clusters[0].x - space[n].x);
-        min_dist[1] = (clusters[0].y - space[n+1].y) * (clusters[0].y - space[n+1].y) + (clusters[0].x - space[n+1].x) * (clusters[0].x - space[n+1].x);
-        sample_id_new[0] = 0;
-        sample_id_new[1] = 0;
+        min_dist = (clusters[0].y - space[n].y) * (clusters[0].y - space[n].y) + (clusters[0].x - space[n].x) * (clusters[0].x - space[n].x);
+        sample_id_new = 0;
         
         for(int k = 1; k < K_CLUSTERS; k++) {
             //Euclidean distance of two consecutive points for other clusters
-            dist[0] = (clusters[k].y - space[n].y) * (clusters[k].y - space[n].y) + (clusters[k].x - space[n].x) * (clusters[k].x - space[n].x);
-            dist[1] = (clusters[k].y - space[n+1].y) * (clusters[k].y - space[n+1].y) + (clusters[k].x - space[n+1].x) * (clusters[k].x - space[n+1].x);
-            if (dist[0] < min_dist[0]) {
+            dist = (clusters[k].y - space[n].y) * (clusters[k].y - space[n].y) + (clusters[k].x - space[n].x) * (clusters[k].x - space[n].x);
+            if (dist < min_dist) {
                 //If the new distance of the first point is lower, update value
-                min_dist[0] = dist[0];
-                sample_id_new[0] = k;
-            }
-            if (dist[1] < min_dist[1]) {
-                //If the new distance of the second point is lower, update value
-                min_dist[1] = dist[1];
-                sample_id_new[1] = k;
+                min_dist = dist;
+                sample_id_new = k;
             }
         }
 
         //After getting the closest cluster to point #1, we now can fill the arrays with the cluster ID, x point value and y point value
-        clusters_npoints[sample_id_new[0]] ++;
-        sumX[sample_id_new[0]] += space[n].x;
-        sumY[sample_id_new[0]] += space[n].y;
-
-        //After getting the closest cluster to point #2, we now can fill the arrays with the cluster ID, x point value and y point value
-        clusters_npoints[sample_id_new[1]] ++;
-        sumX[sample_id_new[1]] += space[n+1].x;
-        sumY[sample_id_new[1]] += space[n+1].y;
+        clusters_npoints[sample_id_new] ++;
+        sumX[sample_id_new] += space[n].x;
+        sumY[sample_id_new] += space[n].y;
 
         //Check if the algorith converged - if the points are associated to the same clusters
-        converged = converged && sample_id_new[0] == samples_id[n] && sample_id_new[1] == samples_id[n+1];
-        samples_id[n] = sample_id_new[0];
-        samples_id[n+1] = sample_id_new[1];
-    }
-
-    //In case of number of samples even, it does the last iteration
-    if (n < N_SAMPLES) {
-        min_dist[0] = (clusters[0].y - space[n].y) * (clusters[0].y - space[n].y) + (clusters[0].x - space[n].x) * (clusters[0].x - space[n].x);
-        sample_id_new[0] = 0;
-        for(int k = 1; k < K_CLUSTERS; k++) {
-            dist[0] = (clusters[k].y - space[n].y) * (clusters[k].y - space[n].y) + (clusters[k].x - space[n].x) * (clusters[k].x - space[n].x);
-            if (dist[0] < min_dist[0]) {
-                min_dist[0] = dist[0];
-                sample_id_new[0] = k;
-            }
-        }
-        clusters_npoints[sample_id_new[0]] ++;
-        sumX[sample_id_new[0]] += space[n].x;
-        sumY[sample_id_new[0]] += space[n].y;
-
-        converged = converged && sample_id_new[0] == samples_id[n];
-        samples_id[n] = sample_id_new[0];
+        converged = converged && sample_id_new == samples_id[n];
+        samples_id[n] = sample_id_new;
     }
 
 
@@ -111,19 +78,17 @@ int update_clusters(POINT* space, POINT* clusters, int* samples_id, int* cluster
 }
 
 int update_clusters_parallel(POINT* space, POINT* clusters, int* samples_id, int* clusters_npoints, int N_SAMPLES, int K_CLUSTERS){
-    float sumX[K_CLUSTERS];
-    float sumY[K_CLUSTERS];
-    float min_dist[2];
-    float dist[2];
-
-    int sample_id_new[2];
-    int converged = 1;
+    float sumX[K_CLUSTERS]; 
+    float sumY[K_CLUSTERS]; 
+    float min_dist;
+    float dist;
+    int converged = 1; //variavel critica
 
     // Initialise arrays with zeros
     for (int i = 0; i < K_CLUSTERS; i++) {
-        clusters_npoints[i] = 0;
-        sumX[i] = 0.0;
-        sumY[i] = 0.0;
+        clusters_npoints[i] = 0; //variavel critica
+        sumX[i] = 0.0; //variavel critica
+        sumY[i] = 0.0; //variavel critica
     }
 
 
@@ -131,63 +96,51 @@ int update_clusters_parallel(POINT* space, POINT* clusters, int* samples_id, int
     int n = 0, k;
 
     #pragma omp parallel
-    #pragma omp for private(n,k)
-    for(n = 0; n < N_SAMPLES-1; n+=2) {
+    {
+    float sumX_par[K_CLUSTERS];
+    float sumY_par[K_CLUSTERS];
+    int converged_par = 1;
+    int clusters_npoints_par[K_CLUSTERS];
+    int sample_id_new;
+    for (int i = 0; i < K_CLUSTERS; i++) {
+        clusters_npoints_par[i] = 0; 
+        sumX_par[i] = 0.0; 
+        sumY_par[i] = 0.0; 
+    }
+    #pragma omp for
+    for(n = 0; n < N_SAMPLES; n++) {
         //Euclidean distance of two consecutive points for first cluster
-        min_dist[0] = (clusters[0].y - space[n].y) * (clusters[0].y - space[n].y) + (clusters[0].x - space[n].x) * (clusters[0].x - space[n].x);
-        min_dist[1] = (clusters[0].y - space[n+1].y) * (clusters[0].y - space[n+1].y) + (clusters[0].x - space[n+1].x) * (clusters[0].x - space[n+1].x);
-        sample_id_new[0] = 0;
-        sample_id_new[1] = 0;
+        min_dist = (clusters[0].y - space[n].y) * (clusters[0].y - space[n].y) + (clusters[0].x - space[n].x) * (clusters[0].x - space[n].x);
+        sample_id_new = 0;
         
         for(k = 1; k < K_CLUSTERS; k++) {
             //Euclidean distance of two consecutive points for other clusters
-            dist[0] = (clusters[k].y - space[n].y) * (clusters[k].y - space[n].y) + (clusters[k].x - space[n].x) * (clusters[k].x - space[n].x);
-            dist[1] = (clusters[k].y - space[n+1].y) * (clusters[k].y - space[n+1].y) + (clusters[k].x - space[n+1].x) * (clusters[k].x - space[n+1].x);
-            if (dist[0] < min_dist[0]) {
+            dist = (clusters[k].y - space[n].y) * (clusters[k].y - space[n].y) + (clusters[k].x - space[n].x) * (clusters[k].x - space[n].x);
+            if (dist < min_dist) {
                 //If the new distance of the first point is lower, update value
-                min_dist[0] = dist[0];
-                sample_id_new[0] = k;
-            }
-            if (dist[1] < min_dist[1]) {
-                //If the new distance of the second point is lower, update value
-                min_dist[1] = dist[1];
-                sample_id_new[1] = k;
+                min_dist = dist;
+                sample_id_new = k;
             }
         }
 
         //After getting the closest cluster to point #1, we now can fill the arrays with the cluster ID, x point value and y point value
-        clusters_npoints[sample_id_new[0]] ++;
-        sumX[sample_id_new[0]] += space[n].x;
-        sumY[sample_id_new[0]] += space[n].y;
-
-        //After getting the closest cluster to point #2, we now can fill the arrays with the cluster ID, x point value and y point value
-        clusters_npoints[sample_id_new[1]] ++;
-        sumX[sample_id_new[1]] += space[n+1].x;
-        sumY[sample_id_new[1]] += space[n+1].y;
+        clusters_npoints_par[sample_id_new] ++;
+        sumX_par[sample_id_new] += space[n].x;
+        sumY_par[sample_id_new] += space[n].y;
 
         //Check if the algorith converged - if the points are associated to the same clusters
-        converged = converged && sample_id_new[0] == samples_id[n] && sample_id_new[1] == samples_id[n+1];
-        samples_id[n] = sample_id_new[0];
-        samples_id[n+1] = sample_id_new[1];
+        converged_par = converged_par && sample_id_new == samples_id[n];
+        samples_id[n] = sample_id_new;
     }
-
-    //In case of number of samples even, it does the last iteration
-    if (n < N_SAMPLES) {
-        min_dist[0] = (clusters[0].y - space[n].y) * (clusters[0].y - space[n].y) + (clusters[0].x - space[n].x) * (clusters[0].x - space[n].x);
-        sample_id_new[0] = 0;
-        for(k = 1; k < K_CLUSTERS; k++) {
-            dist[0] = (clusters[k].y - space[n].y) * (clusters[k].y - space[n].y) + (clusters[k].x - space[n].x) * (clusters[k].x - space[n].x);
-            if (dist[0] < min_dist[0]) {
-                min_dist[0] = dist[0];
-                sample_id_new[0] = k;
-            }
-        }
-        clusters_npoints[sample_id_new[0]] ++;
-        sumX[sample_id_new[0]] += space[n].x;
-        sumY[sample_id_new[0]] += space[n].y;
-
-        converged = converged && sample_id_new[0] == samples_id[n];
-        samples_id[n] = sample_id_new[0];
+    #pragma omp critical
+    {
+    for (int i = 0; i < K_CLUSTERS; i++) {
+        clusters_npoints[i] += clusters_npoints_par[i]; 
+        sumX[i] += sumX_par[i]; 
+        sumY[i] += sumY_par[i]; 
+    }
+    converged = converged && converged_par;
+    }
     }
 
 

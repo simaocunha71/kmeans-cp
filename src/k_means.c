@@ -64,6 +64,6 @@ int main (int argc, char const *argv[]){
     }
     else
         //Sequential version without arguments
-        k_means_seq(1000000, 4);
+        k_means_seq(10000000, 4);
     return 0;
 }
