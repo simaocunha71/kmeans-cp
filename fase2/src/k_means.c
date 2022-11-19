@@ -27,6 +27,7 @@ void k_means_par (int N_SAMPLES, int K_CLUSTERS, int THREADS){
     POINT* clusters = create_vector(K_CLUSTERS);
 
     omp_set_num_threads(THREADS);
+
     
     int* samples_id = create_iarray(N_SAMPLES);
     int* clusters_npoints = create_iarray(K_CLUSTERS);
@@ -60,6 +61,7 @@ int main (int argc, char const *argv[]){
         int N_SAMPLES = atoi(argv[1]);
         int K_CLUSTERS = atoi(argv[2]);
         int THREADS = atoi(argv[3]);
+
         k_means_par(N_SAMPLES, K_CLUSTERS, THREADS);
     }
     else

@@ -5,7 +5,6 @@ INCLUDES=include/
 EXEC=k_means
 CFLAGS=-Wall -O2 -fopenmp
 .DEFAULT_GOAL=k_means	
-THREADS = 4 #Change to a desirable number of threads
 
 k_means:$(SRC)k_means.c $(BIN)utils.o
 		$(CC) $(CFLAGS) $(SRC)k_means.c $(BIN)utils.o -o $(BIN)$(EXEC) -lm

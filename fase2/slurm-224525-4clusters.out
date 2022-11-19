@@ -6,9 +6,9 @@ Center: (0.750, 0.250) : Size: 2499404
 Center: (0.750, 0.750) : Size: 2500246
 Iterations: 20
 
-real	0m1.360s
-user	0m2.432s
-sys	0m0.051s
+real	0m1.332s
+user	0m2.341s
+sys	0m0.041s
 ------------N_THREADS = 4------------
 N = 10000000, K = 4
 Center: (0.250, 0.750) : Size: 2498764
@@ -17,53 +17,53 @@ Center: (0.750, 0.250) : Size: 2499381
 Center: (0.750, 0.750) : Size: 2500195
 Iterations: 20
 
-real	0m0.781s
-user	0m2.444s
-sys	0m0.030s
+real	0m0.771s
+user	0m2.388s
+sys	0m0.031s
 ------------N_THREADS = 6------------
 N = 10000000, K = 4
 Center: (0.250, 0.750) : Size: 2498763
-Center: (0.250, 0.250) : Size: 2501656
-Center: (0.750, 0.250) : Size: 2499363
+Center: (0.250, 0.250) : Size: 2501658
+Center: (0.750, 0.250) : Size: 2499361
 Center: (0.750, 0.750) : Size: 2500218
 Iterations: 20
 
-real	0m0.748s
-user	0m2.641s
+real	0m0.696s
+user	0m2.953s
 sys	0m0.031s
 ------------N_THREADS = 8------------
 N = 10000000, K = 4
 Center: (0.250, 0.750) : Size: 2498773
-Center: (0.250, 0.250) : Size: 2501624
-Center: (0.750, 0.250) : Size: 2499379
+Center: (0.250, 0.250) : Size: 2501623
+Center: (0.750, 0.250) : Size: 2499380
 Center: (0.750, 0.750) : Size: 2500224
 Iterations: 20
 
-real	0m0.512s
-user	0m2.536s
-sys	0m0.031s
+real	0m0.602s
+user	0m3.059s
+sys	0m0.027s
 ------------N_THREADS = 10------------
 N = 10000000, K = 4
 Center: (0.250, 0.750) : Size: 2498768
-Center: (0.250, 0.250) : Size: 2501627
+Center: (0.250, 0.250) : Size: 2501628
 Center: (0.750, 0.250) : Size: 2499387
-Center: (0.750, 0.750) : Size: 2500218
+Center: (0.750, 0.750) : Size: 2500217
 Iterations: 20
 
-real	0m0.454s
-user	0m2.541s
-sys	0m0.030s
+real	0m0.513s
+user	0m3.095s
+sys	0m0.037s
 ------------N_THREADS = 12------------
 N = 10000000, K = 4
-Center: (0.250, 0.750) : Size: 2498783
-Center: (0.250, 0.250) : Size: 2501614
+Center: (0.250, 0.750) : Size: 2498784
+Center: (0.250, 0.250) : Size: 2501613
 Center: (0.750, 0.250) : Size: 2499390
 Center: (0.750, 0.750) : Size: 2500213
 Iterations: 20
 
-real	0m0.416s
-user	0m2.552s
-sys	0m0.037s
+real	0m0.471s
+user	0m3.101s
+sys	0m0.029s
 ------------N_THREADS = 14------------
 N = 10000000, K = 4
 Center: (0.250, 0.750) : Size: 2498783
@@ -72,9 +72,9 @@ Center: (0.750, 0.250) : Size: 2499392
 Center: (0.750, 0.750) : Size: 2500190
 Iterations: 20
 
-real	0m0.389s
-user	0m2.575s
-sys	0m0.033s
+real	0m0.437s
+user	0m3.303s
+sys	0m0.029s
 ------------N_THREADS = 16------------
 N = 10000000, K = 4
 Center: (0.250, 0.750) : Size: 2498784
@@ -83,9 +83,9 @@ Center: (0.750, 0.250) : Size: 2499396
 Center: (0.750, 0.750) : Size: 2500198
 Iterations: 20
 
-real	0m0.368s
-user	0m2.567s
-sys	0m0.032s
+real	0m0.410s
+user	0m3.254s
+sys	0m0.037s
 ------------N_THREADS = 18------------
 N = 10000000, K = 4
 Center: (0.250, 0.750) : Size: 2498785
@@ -94,20 +94,20 @@ Center: (0.750, 0.250) : Size: 2499391
 Center: (0.750, 0.750) : Size: 2500198
 Iterations: 20
 
-real	0m0.724s
-user	0m3.624s
-sys	0m0.032s
+real	0m0.512s
+user	0m3.939s
+sys	0m0.041s
 ------------N_THREADS = 20------------
 N = 10000000, K = 4
-Center: (0.250, 0.750) : Size: 2498778
-Center: (0.250, 0.250) : Size: 2501632
-Center: (0.750, 0.250) : Size: 2499392
+Center: (0.250, 0.750) : Size: 2498777
+Center: (0.250, 0.250) : Size: 2501631
+Center: (0.750, 0.250) : Size: 2499394
 Center: (0.750, 0.750) : Size: 2500198
 Iterations: 20
 
-real	0m0.436s
-user	0m3.682s
-sys	0m0.033s
+real	0m0.422s
+user	0m3.827s
+sys	0m0.028s
 ------------N_THREADS = 22------------
 N = 10000000, K = 4
 Center: (0.250, 0.750) : Size: 2498772
@@ -116,9 +116,9 @@ Center: (0.750, 0.250) : Size: 2499391
 Center: (0.750, 0.750) : Size: 2500212
 Iterations: 20
 
-real	0m0.422s
-user	0m3.843s
-sys	0m0.038s
+real	0m0.465s
+user	0m4.169s
+sys	0m0.069s
 ------------N_THREADS = 24------------
 N = 10000000, K = 4
 Center: (0.250, 0.750) : Size: 2498782
@@ -127,20 +127,20 @@ Center: (0.750, 0.250) : Size: 2499400
 Center: (0.750, 0.750) : Size: 2500196
 Iterations: 20
 
-real	0m0.404s
-user	0m3.841s
-sys	0m0.044s
+real	0m0.438s
+user	0m4.432s
+sys	0m0.056s
 ------------N_THREADS = 26------------
 N = 10000000, K = 4
 Center: (0.250, 0.750) : Size: 2498778
-Center: (0.250, 0.250) : Size: 2501630
-Center: (0.750, 0.250) : Size: 2499388
-Center: (0.750, 0.750) : Size: 2500204
+Center: (0.250, 0.250) : Size: 2501628
+Center: (0.750, 0.250) : Size: 2499389
+Center: (0.750, 0.750) : Size: 2500205
 Iterations: 20
 
-real	0m0.390s
-user	0m4.047s
-sys	0m0.042s
+real	0m0.419s
+user	0m4.768s
+sys	0m0.033s
 ------------N_THREADS = 28------------
 N = 10000000, K = 4
 Center: (0.250, 0.750) : Size: 2498779
@@ -149,31 +149,31 @@ Center: (0.750, 0.250) : Size: 2499391
 Center: (0.750, 0.750) : Size: 2500197
 Iterations: 20
 
-real	0m0.377s
-user	0m4.200s
-sys	0m0.038s
+real	0m0.398s
+user	0m4.895s
+sys	0m0.032s
 ------------N_THREADS = 30------------
 N = 10000000, K = 4
 Center: (0.250, 0.750) : Size: 2498777
-Center: (0.250, 0.250) : Size: 2501635
-Center: (0.750, 0.250) : Size: 2499387
+Center: (0.250, 0.250) : Size: 2501638
+Center: (0.750, 0.250) : Size: 2499384
 Center: (0.750, 0.750) : Size: 2500201
 Iterations: 20
 
-real	0m0.370s
-user	0m4.378s
-sys	0m0.033s
-------------N_THREADS = 4------------
+real	0m0.520s
+user	0m5.324s
+sys	0m0.031s
+------------N_THREADS = 32------------
 N = 10000000, K = 4
-Center: (0.250, 0.750) : Size: 2498764
-Center: (0.250, 0.250) : Size: 2501660
-Center: (0.750, 0.250) : Size: 2499381
-Center: (0.750, 0.750) : Size: 2500195
+Center: (0.250, 0.750) : Size: 2498782
+Center: (0.250, 0.250) : Size: 2501626
+Center: (0.750, 0.250) : Size: 2499389
+Center: (0.750, 0.750) : Size: 2500203
 Iterations: 20
 
-real	0m0.783s
-user	0m2.443s
-sys	0m0.030s
+real	0m0.374s
+user	0m5.222s
+sys	0m0.067s
 ------------N_THREADS = 34------------
 N = 10000000, K = 4
 Center: (0.250, 0.750) : Size: 2498778
@@ -182,9 +182,9 @@ Center: (0.750, 0.250) : Size: 2499388
 Center: (0.750, 0.750) : Size: 2500207
 Iterations: 20
 
-real	0m0.356s
-user	0m4.556s
-sys	0m0.037s
+real	0m0.363s
+user	0m5.345s
+sys	0m0.040s
 ------------N_THREADS = 36------------
 N = 10000000, K = 4
 Center: (0.250, 0.750) : Size: 2498781
@@ -193,28 +193,28 @@ Center: (0.750, 0.250) : Size: 2499387
 Center: (0.750, 0.750) : Size: 2500204
 Iterations: 20
 
-real	0m0.343s
-user	0m4.614s
-sys	0m0.029s
+real	0m0.357s
+user	0m5.531s
+sys	0m0.038s
 ------------N_THREADS = 38------------
 N = 10000000, K = 4
-Center: (0.250, 0.750) : Size: 2498785
-Center: (0.250, 0.250) : Size: 2501628
+Center: (0.250, 0.750) : Size: 2498784
+Center: (0.250, 0.250) : Size: 2501629
 Center: (0.750, 0.250) : Size: 2499387
 Center: (0.750, 0.750) : Size: 2500200
 Iterations: 20
 
-real	0m0.339s
-user	0m4.702s
-sys	0m0.032s
+real	0m0.360s
+user	0m5.809s
+sys	0m0.036s
 ------------N_THREADS = 40------------
 N = 10000000, K = 4
 Center: (0.250, 0.750) : Size: 2498781
-Center: (0.250, 0.250) : Size: 2501628
-Center: (0.750, 0.250) : Size: 2499387
+Center: (0.250, 0.250) : Size: 2501627
+Center: (0.750, 0.250) : Size: 2499388
 Center: (0.750, 0.750) : Size: 2500204
 Iterations: 20
 
-real	0m0.498s
-user	0m5.351s
-sys	0m0.031s
+real	0m0.344s
+user	0m5.610s
+sys	0m0.033s

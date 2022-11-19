@@ -1,0 +1,47 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 85
+#
+# Samples: 1K of event 'cycles:ppp'
+# Event count (approx.): 9789197430
+#
+# Overhead       Samples  Command  Shared Object     Symbol                           
+# ........  ............  .......  ................  .................................
+#
+    77.09%           681  k_means  k_means           [.] update_clusters
+    10.06%            85  k_means  [unknown]         [k] 0xffffffffa158cbc0
+     6.18%           152  k_means  libc-2.17.so      [.] __random_r
+     2.88%            48  k_means  libc-2.17.so      [.] rand
+     2.15%            84  k_means  libc-2.17.so      [.] __random
+     0.94%            20  k_means  [unknown]         [k] 0xffffffffa1195377
+     0.48%            41  k_means  k_means           [.] fill
+     0.09%             7  k_means  k_means           [.] rand@plt
+     0.02%             1  k_means  [unknown]         [k] 0xffffffffa0ec9710
+     0.01%             1  make     ld-2.17.so        [.] init_cpu_features.constprop.0
+     0.01%             1  k_means  [unknown]         [k] 0xffffffffa0ff6f49
+     0.01%             1  k_means  [unknown]         [k] 0xffffffffc0c5a0b1
+     0.01%             1  make     [unknown]         [k] 0xffffffffa159608e
+     0.01%             1  make     libc-2.17.so      [.] _int_free
+     0.01%             1  make     [unknown]         [k] 0xffffffffa1195377
+     0.01%             1  make     [unknown]         [k] 0xffffffffa158ca5e
+     0.01%             1  make     libc-2.17.so      [.] __strcmp_sse42
+     0.01%             1  make     make              [.] 0x000000000001b2c8
+     0.01%             1  make     [unknown]         [k] 0xffffffffa158c48a
+     0.01%             1  k_means  [unknown]         [k] 0xffffffffa0fc8e4e
+     0.01%             1  make     [unknown]         [k] 0xffffffffa103eb8c
+     0.01%             1  k_means  [unknown]         [k] 0xffffffffa1040004
+     0.01%             1  k_means  libc-2.17.so      [.] __srandom_r
+     0.01%             1  k_means  [unknown]         [k] 0xffffffffa0fb280d
+     0.01%             1  k_means  [unknown]         [k] 0xffffffffa158c48a
+     0.00%             1  k_means  [unknown]         [k] 0xffffffffa1595fa4
+     0.00%             1  make     [unknown]         [k] 0xffffffffc0bba818
+     0.00%             1  perf     [unknown]         [k] 0xffffffffa0fa7070
+     0.00%             1  perf     [unknown]         [k] 0xffffffffa12504b1
+     0.00%             1  perf     [unknown]         [k] 0xffffffffa0e0ad00
+     0.00%             5  perf     [unknown]         [k] 0xffffffffa0e6d5f8
+
+
+#
+# (Tip: For tracepoint events, try: perf report -s trace_fields)
+#
