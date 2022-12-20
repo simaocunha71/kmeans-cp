@@ -1,10 +1,10 @@
 #include "../include/utils.h"
 
-int main (int argc, char const *argv[]){
-    int iterations = 0;
-    
-    MPI_Init(NULL, NULL);
-    
+int main (int argc, char** argv){
+	// initialize the MPI environment
+	MPI_Init(&argc, &argv);
+    MPI_Status status;
+
 	// get number of processes
 	int world_size;
 	MPI_Comm_size(MPI_COMM_WORLD, &world_size);
@@ -13,37 +13,50 @@ int main (int argc, char const *argv[]){
 	int world_rank;
 	MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
 
-    POINT* samples_space = create_vector(N_SAMPLES);
-    POINT* clusters = create_vector(K_CLUSTERS);
+    //Todos os processos tem de alocar espaço e nao apenas o processo main
+    float* space_x = create_farray(N_SAMPLES);
+    float* space_y = create_farray(N_SAMPLES);
+
+    float* clusters_x = create_farray(K_CLUSTERS);
+    float* clusters_y = create_farray(K_CLUSTERS);
+
     int* samples_id = create_iarray(N_SAMPLES);
     int* clusters_npoints = create_iarray(K_CLUSTERS);
 
     if(world_rank == 0){
-        fill(samples_space, clusters, samples_id);
+        fill(space_x, space_y, clusters_x, clusters_y, samples_id);
+        MPI_Bcast(space_x, N_SAMPLES, MPI_FLOAT, 0, MPI_COMM_WORLD);
+        MPI_Bcast(space_y, N_SAMPLES, MPI_FLOAT, 0, MPI_COMM_WORLD);
+        MPI_Bcast(clusters_x, K_CLUSTERS, MPI_FLOAT, 0, MPI_COMM_WORLD);
+        MPI_Bcast(clusters_y, K_CLUSTERS, MPI_FLOAT, 0, MPI_COMM_WORLD);
+        MPI_Bcast(samples_id, K_CLUSTERS, MPI_INT, 0, MPI_COMM_WORLD);
     }
-    else { //Worker node
-
-        float sumX[K_CLUSTERS];
-        float sumY[K_CLUSTERS];
-    
-        int converged;
-        do{
-            converged = assign_points(samples_space, clusters, samples_id, clusters_npoints, sumX, sumY, world_size);
-            if(world_rank == 0){
-                compute_new_centroids(clusters, clusters_npoints, sumX, sumY);
-            }
-            iterations++;
-        }while(!converged);
+    else{
+        //Processos filho recebem os mesmos dados que os do processo main
+        MPI_Bcast(space_x, N_SAMPLES, MPI_FLOAT, 0, MPI_COMM_WORLD);
+        MPI_Bcast(space_y, N_SAMPLES, MPI_FLOAT, 0, MPI_COMM_WORLD);
+        MPI_Bcast(clusters_x, K_CLUSTERS, MPI_FLOAT, 0, MPI_COMM_WORLD);
+        MPI_Bcast(clusters_y, K_CLUSTERS, MPI_FLOAT, 0, MPI_COMM_WORLD);
+        MPI_Bcast(samples_id, K_CLUSTERS, MPI_INT, 0, MPI_COMM_WORLD);
     }
 
+    //Todos os processos entram nas funçoes abaixo
+    int iterations = 0;
+    int converged;
+    do{
+        converged = update_clusters(space_x, space_y, clusters_x, clusters_y, samples_id, clusters_npoints, world_size, world_rank, status);
+        iterations++;
+    }while(!converged);
 
-    print_output(clusters, clusters_npoints, iterations);
+    if(world_rank == 0) //Processo main vai receber os resultados dos processos filho - e só se imprime 1x
+        print_output(clusters_x, clusters_y, clusters_npoints, iterations-1);
 
-    free(samples_space);
-    free(clusters);
+    free(space_x);
+    free(space_y);
+    free(clusters_x);
+    free(clusters_y);
     free(samples_id);
     free(clusters_npoints);
-
-    MPI_Finalize ();
+	MPI_Finalize();
     return 0;
 }

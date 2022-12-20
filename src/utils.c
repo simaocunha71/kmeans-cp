@@ -1,8 +1,9 @@
 #include "../include/utils.h"
 
-POINT* create_vector(int size){
-    POINT* vec = (POINT*)malloc(size * sizeof(struct point));
-    return vec;
+
+float* create_farray(int size){
+    float* arr = (float*)malloc(size * sizeof(float));
+    return arr;
 }
 
 int* create_iarray(int size){
@@ -11,55 +12,118 @@ int* create_iarray(int size){
 }
 
 
-void fill(POINT* space, POINT* clusters, int* samples_id){
+void fill(float* space_x,float* space_y, float* clusters_x,float* clusters_y, int* samples_id){
     srand(10);
     for(int i = 0; i < N_SAMPLES; i++) {
-        space[i].x = (float) rand() / RAND_MAX;
-        space[i].y = (float) rand() / RAND_MAX;
+        space_x[i] = (float) rand() / RAND_MAX;
+        space_y[i] = (float) rand() / RAND_MAX;
         samples_id[i] = -1;
     }
     for(int i = 0; i < K_CLUSTERS; i++) {
-        clusters[i].x = space[i].x;
-        clusters[i].y = space[i].y;
+        clusters_x[i] = space_x[i];
+        clusters_y[i] = space_y[i];
     }
 }
 
-int assign_points(POINT* space, POINT* clusters, int* samples_id, int* clusters_npoints, float* sumX, float* sumY, int world_size){
+int update_clusters(float* space_x,float* space_y, float* clusters_x,float* clusters_y, int* samples_id, int* clusters_npoints, int nProcesses, int atualRank, MPI_Status status){
+    float sumX[K_CLUSTERS];
+    float sumX_aux[K_CLUSTERS];
+    float sumY[K_CLUSTERS];
+    float sumY_aux[K_CLUSTERS];
+    float clusters_npoints_aux[K_CLUSTERS];
     float min_dist;
     float dist;
+
+    float cx, cy, sx, sy;
     int sample_id_new;
     int converged = 1;
-    //Assign points
-    for(int n = 0; n < (N_SAMPLES/world_size) + 1; n++) {
-        min_dist = (clusters[0].y - space[n].y) * (clusters[0].y - space[n].y) + (clusters[0].x - space[n].x) * (clusters[0].x - space[n].x);
-        sample_id_new = 0;
-        for(int k = 1; k < K_CLUSTERS; k++) {
-            dist = (clusters[k].y - space[n].y) * (clusters[k].y - space[n].y) + (clusters[k].x - space[n].x) * (clusters[k].x - space[n].x);
-            sample_id_new = 0;
-            if (dist < min_dist) {
-                min_dist = dist;
-                sample_id_new = k;
-            }
-        }
-        clusters_npoints[sample_id_new] ++;
-        sumX[sample_id_new] += space[n].x;
-        sumY[sample_id_new] += space[n].y;
 
-        converged = converged && sample_id_new == samples_id[n];
-        samples_id[n] = sample_id_new;
-    }
-    return converged;
-}
-
-void compute_new_centroids(POINT* clusters,  int* clusters_npoints, float* sumX, float* sumY){
     // Initialise arrays with zeros
     for (int i = 0; i < K_CLUSTERS; i++) {
         clusters_npoints[i] = 0;
         sumX[i] = 0.0;
         sumY[i] = 0.0;
     }
+
+    int work_block = N_SAMPLES/nProcesses; 
+    int MAX_ITERATIONS = work_block*(atualRank + 1);
+
+    if(atualRank == nProcesses - 1){
+        MAX_ITERATIONS += N_SAMPLES % nProcesses; //O ultimo processo faz o último bloco que nao foi atribuido
+    }
+    
+    //Assign points 
+    for(int n = work_block*atualRank; n < MAX_ITERATIONS; n++) {
+        sx = space_x[n];
+        sy = space_y[n];
+        cx = clusters_x[0];
+        cy = clusters_y[0];
+        min_dist = (cy - sy) * (cy - sy) + (cx - sx) * (cx - sx);
+        sample_id_new = 0;
+        for(int k = 1; k < K_CLUSTERS; k++) {
+            cx = clusters_x[k];
+            cy = clusters_y[k];
+            dist = (cy - sy) * (cy - sy) + (cx - sx) * (cx - sx);
+            if (dist < min_dist) {
+                min_dist = dist;
+                sample_id_new = k;
+            }
+        }
+        clusters_npoints[sample_id_new] ++;
+        sumX[sample_id_new] += space_x[n];
+        sumY[sample_id_new] += space_y[n];
+
+        converged = converged && sample_id_new == samples_id[n];
+        samples_id[n] = sample_id_new;
+    }
+
+    //
+    if(atualRank == 0){
+        /*
+        -> Atualizar o sumX, sumY e clusterNPoints com o calculado pelos outros processos (for de recv) - usar vars auxliares
+        */
+        for(int i = 0; i < nProcesses; i++){
+            MPI_Recv(sumX_aux, K_CLUSTERS, MPI_FLOAT, i, 0, MPI_COMM_WORLD, &status);
+            MPI_Recv(sumY_aux, K_CLUSTERS, MPI_FLOAT, i, 0, MPI_COMM_WORLD, &status);
+            MPI_Recv(clusters_npoints_aux, K_CLUSTERS, MPI_INT, i, 0, MPI_COMM_WORLD, &status);
+            for(int j = 0; j < K_CLUSTERS; j++){
+                sumX[j] += sumX_aux[j];
+                sumY[j] += sumY_aux[j];
+                clusters_npoints[j] += clusters_npoints_aux[j];
+            }
+        }
+
+        //Compute new centroids
+        for (int i = 0; i < K_CLUSTERS; i++) {
+            clusters_x[i] = sumX[i] / clusters_npoints[i];
+            clusters_y[i] = sumY[i] / clusters_npoints[i];
+        }
+        //enviar por BCAST o clusterY e o clusterX
+        MPI_Bcast(clusters_x, K_CLUSTERS, MPI_FLOAT, 0, MPI_COMM_WORLD);
+        MPI_Bcast(clusters_y, K_CLUSTERS, MPI_FLOAT, 0, MPI_COMM_WORLD);
+    }
+    else{
+        /*
+        -> Enviar para o 0 o sumX, sumY e clusterNPoints
+        -> Receber do 0 o clusterY e o clusterX
+        */
+       MPI_Send(sumX, K_CLUSTERS, MPI_FLOAT, 0, 0, MPI_COMM_WORLD);
+       MPI_Send(sumY, K_CLUSTERS, MPI_FLOAT, 0, 0, MPI_COMM_WORLD);
+       MPI_Send(clusters_npoints, K_CLUSTERS, MPI_INT, 0, 0, MPI_COMM_WORLD);
+
+       MPI_Bcast(clusters_x, K_CLUSTERS, MPI_FLOAT, 0, MPI_COMM_WORLD);
+       MPI_Bcast(clusters_x, K_CLUSTERS, MPI_FLOAT, 0, MPI_COMM_WORLD);
+    }
+
+
+
+    return converged;
 }
 
+//UNUSED
+float euclidian_distance(float x1, float y1, float x2, float y2){
+    return (y2 - y1) * (y2 - y1) + (x2 - x1) * (x2 - x1);
+}
 
 void copy_samplesid(int* samples_id, int* samples_id_to_copy){
     for (int i = 0; i < N_SAMPLES; i++){
@@ -67,10 +131,10 @@ void copy_samplesid(int* samples_id, int* samples_id_to_copy){
     }
 }
 
-void print_output(POINT* clusters, int* clusters_npoints, int iterations){
+void print_output(float* clusters_x,float* clusters_y, int* clusters_npoints, int iterations){
     printf("N = %d, K = %d\n", N_SAMPLES, K_CLUSTERS);
     for(int i = 0; i < K_CLUSTERS; i++){
-        printf("Center: (%.3f, %.3f) : Size: %d\n", clusters[i].x, clusters[i].y, clusters_npoints[i]);
+        printf("Center: (%.3f, %.3f) : Size: %d\n", clusters_x[i], clusters_y[i], clusters_npoints[i]);
     }
     printf("Iterations: %d\n", iterations);
 }

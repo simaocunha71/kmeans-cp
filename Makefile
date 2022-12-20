@@ -1,4 +1,4 @@
-CC=mpic++
+CC=mpicc
 BIN=bin/
 SRC=src/
 INCLUDES=include/

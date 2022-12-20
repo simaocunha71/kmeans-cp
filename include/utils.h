@@ -7,14 +7,6 @@
 #define K_CLUSTERS 4
 
 /**
- * @brief Point struct
- */
-typedef struct point {
-    float x; //Value of x
-    float y; //Value of y
-} POINT;
-
-/**
  * @brief Create a int array
  * @param size Array size
  * @return int* Array allocated
@@ -22,24 +14,20 @@ typedef struct point {
 int* create_iarray(int size);
 
 /**
- * @brief Create a vector object
- * @param size Vector size
- * @return POINT* Vector allocated
+ * @brief Create a int array
+ * @param size Array size
+ * @return float* Array allocated
  */
-POINT* create_vector(int size);
+float* create_farray(int size);
 
 
-/**
- * @brief Fill sample's space and clusters with random values according with a certain seed and calculus
- * @param space Sample's space
- * @param clusters Clusters' vector
- */
-void fill(POINT* space, POINT* clusters, int* samples_id);
 
-int assign_points(POINT* space, POINT* clusters, int* samples_id, int* clusters_npoints, float* sumX, float* sumY, int world_size);
+void fill(float* space_x,float* space_y, float* clusters_x,float* clusters_y, int* samples_id);
 
-void compute_new_centroids(POINT* clusters,  int* clusters_npoints, float* sumX, float* sumY);
+float euclidian_distance(float x1, float y1, float x2, float y2);
+
+int update_clusters(float* space_x,float* space_y, float* clusters_x,float* clusters_y, int* samples_id, int* clusters_npoints, int nProcesses, int atualRank, MPI_Status status);
 
 int has_converged(int* samples_id_old, int* samples_id);
 
-void print_output(POINT* clusters,int* clusters_npoints, int iterations);
+void print_output(float* clusters_x,float* clusters_y,int* clusters_npoints, int iterations);
