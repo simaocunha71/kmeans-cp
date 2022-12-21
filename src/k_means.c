@@ -1,19 +1,18 @@
 #include "../include/utils.h"
 
 int main (int argc, char** argv){
-	// initialize the MPI environment
 	MPI_Init(&argc, &argv);
     MPI_Status status;
 
-	// get number of processes
+	//Get the number of processes in use
 	int world_size;
 	MPI_Comm_size(MPI_COMM_WORLD, &world_size);
 
-	// get rank
+	//Get rank from a certain process
 	int world_rank;
 	MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
 
-    //Todos os processos tem de alocar espaço e nao apenas o processo main
+    //Not only the process main must allocate space, but also his child processes
     float* space_x = create_farray(N_SAMPLES);
     float* space_y = create_farray(N_SAMPLES);
 
@@ -24,23 +23,23 @@ int main (int argc, char** argv){
     int* clusters_npoints = create_iarray(K_CLUSTERS);
 
     if(world_rank == 0){
+        //Master node is encharged to fill the original arrays and sends them to his children
         fill(space_x, space_y, clusters_x, clusters_y, samples_id);
         MPI_Bcast(space_x, N_SAMPLES, MPI_FLOAT, 0, MPI_COMM_WORLD);
         MPI_Bcast(space_y, N_SAMPLES, MPI_FLOAT, 0, MPI_COMM_WORLD);
         MPI_Bcast(clusters_x, K_CLUSTERS, MPI_FLOAT, 0, MPI_COMM_WORLD);
         MPI_Bcast(clusters_y, K_CLUSTERS, MPI_FLOAT, 0, MPI_COMM_WORLD);
-        MPI_Bcast(samples_id, K_CLUSTERS, MPI_INT, 0, MPI_COMM_WORLD);
+        MPI_Bcast(samples_id, N_SAMPLES, MPI_INT, 0, MPI_COMM_WORLD);
     }
     else{
-        //Processos filho recebem os mesmos dados que os do processo main
+        //Child processes received arrays from master node
         MPI_Bcast(space_x, N_SAMPLES, MPI_FLOAT, 0, MPI_COMM_WORLD);
         MPI_Bcast(space_y, N_SAMPLES, MPI_FLOAT, 0, MPI_COMM_WORLD);
         MPI_Bcast(clusters_x, K_CLUSTERS, MPI_FLOAT, 0, MPI_COMM_WORLD);
         MPI_Bcast(clusters_y, K_CLUSTERS, MPI_FLOAT, 0, MPI_COMM_WORLD);
-        MPI_Bcast(samples_id, K_CLUSTERS, MPI_INT, 0, MPI_COMM_WORLD);
+        MPI_Bcast(samples_id, N_SAMPLES, MPI_INT, 0, MPI_COMM_WORLD);
     }
 
-    //Todos os processos entram nas funçoes abaixo
     int iterations = 0;
     int converged;
     do{
@@ -48,7 +47,8 @@ int main (int argc, char** argv){
         iterations++;
     }while(!converged);
 
-    if(world_rank == 0) //Processo main vai receber os resultados dos processos filho - e só se imprime 1x
+    //Onlu the masted node will show the results obtained from the children
+    if(world_rank == 0)
         print_output(clusters_x, clusters_y, clusters_npoints, iterations-1);
 
     free(space_x);
