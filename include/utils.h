@@ -3,8 +3,6 @@
 #include <math.h>
 #include <mpi.h>
 
-#define N_SAMPLES 10000000
-#define K_CLUSTERS 4
 
 /**
  * @brief Create a int array
@@ -28,7 +26,7 @@ float* create_farray(int size);
  * @param clusters_y Array with y values from clusters
  * @param samples_id Int array with cluster ID that each point is associated to (initialized with -1)
  */
-void fill(float* space_x,float* space_y, float* clusters_x,float* clusters_y, int* samples_id);
+void fill(float* space_x,float* space_y, float* clusters_x,float* clusters_y, int* samples_id, int N_SAMPLES, int K_CLUSTERS);
 
 /**
  * @brief Update clusters and checks if the clusters are the same
@@ -43,14 +41,14 @@ void fill(float* space_x,float* space_y, float* clusters_x,float* clusters_y, in
  * @param status Variable required in MPI_Recv()
  * @return int 1 if converged, 0 otherwise
  */
-int update_clusters(float* space_x,float* space_y, float* clusters_x,float* clusters_y, int* samples_id, int* clusters_npoints, int nProcesses, int atualRank, MPI_Status status);
+int update_clusters(float* space_x,float* space_y, float* clusters_x,float* clusters_y, int* samples_id, int* clusters_npoints, int nProcesses, int atualRank, MPI_Status status, int N_SAMPLES, int K_CLUSTERS);
 
 /**
  * @brief Copy values from samples_id_to_copy to samples_id
  * @param samples_id Destiny array
  * @param samples_id_to_copy Origin array
  */
-void copy_samplesid(int* samples_id, int* samples_id_to_copy);
+void copy_samplesid(int* samples_id, int* samples_id_to_copy, int N_SAMPLES, int K_CLUSTERS);
 
 /**
  * @brief Print the output desired by the teachers
@@ -59,4 +57,4 @@ void copy_samplesid(int* samples_id, int* samples_id_to_copy);
  * @param clusters_npoints Number of points associated to each cluster
  * @param iterations Iterations done by the algorithm
  */
-void print_output(float* clusters_x,float* clusters_y, int* clusters_npoints, int iterations);
+void print_output(float* clusters_x,float* clusters_y, int* clusters_npoints, int iterations, int N_SAMPLES, int K_CLUSTERS);

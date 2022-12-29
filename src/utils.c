@@ -12,7 +12,7 @@ int* create_iarray(int size){
 }
 
 
-void fill(float* space_x,float* space_y, float* clusters_x,float* clusters_y, int* samples_id){
+void fill(float* space_x,float* space_y, float* clusters_x,float* clusters_y, int* samples_id, int N_SAMPLES, int K_CLUSTERS){
     srand(10);
     for(int i = 0; i < N_SAMPLES; i++) {
         space_x[i] = (float) rand() / RAND_MAX;
@@ -25,7 +25,7 @@ void fill(float* space_x,float* space_y, float* clusters_x,float* clusters_y, in
     }
 }
 
-int update_clusters(float* space_x,float* space_y, float* clusters_x,float* clusters_y, int* samples_id, int* clusters_npoints, int nProcesses, int atualRank, MPI_Status status){
+int update_clusters(float* space_x,float* space_y, float* clusters_x,float* clusters_y, int* samples_id, int* clusters_npoints, int nProcesses, int atualRank, MPI_Status status, int N_SAMPLES, int K_CLUSTERS){
     float sumX[K_CLUSTERS];
     float sumY[K_CLUSTERS];
     float min_dist;
@@ -127,13 +127,13 @@ int update_clusters(float* space_x,float* space_y, float* clusters_x,float* clus
 }
 
 
-void copy_samplesid(int* samples_id, int* samples_id_to_copy){
+void copy_samplesid(int* samples_id, int* samples_id_to_copy, int N_SAMPLES, int K_CLUSTERS){
     for (int i = 0; i < N_SAMPLES; i++){
         samples_id[i] = samples_id_to_copy[i];
     }
 }
 
-void print_output(float* clusters_x,float* clusters_y, int* clusters_npoints, int iterations){
+void print_output(float* clusters_x,float* clusters_y, int* clusters_npoints, int iterations, int N_SAMPLES, int K_CLUSTERS){
     printf("N = %d, K = %d\n", N_SAMPLES, K_CLUSTERS);
     for(int i = 0; i < K_CLUSTERS; i++){
         printf("Center: (%.3f, %.3f) : Size: %d\n", clusters_x[i], clusters_y[i], clusters_npoints[i]);
