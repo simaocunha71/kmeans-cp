@@ -1,0 +1,384 @@
+--------------------- 2 clusters ---------------------
+N = 10000000, K = 2
+Center: (0.500, 0.750) : Size: 4999024
+Center: (0.500, 0.250) : Size: 5000976
+Iterations: 20
+
+real	0m1.522s
+user	0m29.293s
+sys	0m4.719s
+--------------------- 4 clusters ---------------------
+N = 10000000, K = 4
+Center: (0.250, 0.750) : Size: 2498776
+Center: (0.250, 0.250) : Size: 2501637
+Center: (0.750, 0.250) : Size: 2499384
+Center: (0.750, 0.750) : Size: 2500203
+Iterations: 20
+
+real	0m2.526s
+user	1m1.503s
+sys	0m2.094s
+--------------------- 6 clusters ---------------------
+N = 10000000, K = 6
+Center: (0.765, 0.839) : Size: 1614901
+Center: (0.469, 0.189) : Size: 1409991
+Center: (0.840, 0.202) : Size: 1368512
+Center: (0.686, 0.532) : Size: 1653532
+Center: (0.244, 0.771) : Size: 2241280
+Center: (0.160, 0.289) : Size: 1711784
+Iterations: 20
+
+real	0m1.758s
+user	0m39.271s
+sys	0m2.318s
+--------------------- 8 clusters ---------------------
+N = 10000000, K = 8
+Center: (0.245, 0.860) : Size: 1391842
+Center: (0.498, 0.197) : Size: 1276155
+Center: (0.837, 0.510) : Size: 1179082
+Center: (0.498, 0.581) : Size: 1242904
+Center: (0.159, 0.529) : Size: 1167107
+Center: (0.167, 0.176) : Size: 1181969
+Center: (0.765, 0.852) : Size: 1424414
+Center: (0.831, 0.166) : Size: 1136527
+Iterations: 20
+
+real	0m1.513s
+user	0m32.638s
+sys	0m2.076s
+--------------------- 10 clusters ---------------------
+N = 10000000, K = 10
+Center: (0.207, 0.850) : Size: 1228130
+Center: (0.583, 0.159) : Size: 917268
+Center: (0.817, 0.442) : Size: 1075342
+Center: (0.499, 0.576) : Size: 1129101
+Center: (0.151, 0.529) : Size: 1068254
+Center: (0.131, 0.158) : Size: 894883
+Center: (0.599, 0.871) : Size: 954807
+Center: (0.865, 0.145) : Size: 810582
+Center: (0.360, 0.253) : Size: 899208
+Center: (0.873, 0.781) : Size: 1022425
+Iterations: 20
+
+real	0m1.879s
+user	0m43.108s
+sys	0m2.418s
+--------------------- 12 clusters ---------------------
+N = 10000000, K = 12
+Center: (0.166, 0.845) : Size: 1037329
+Center: (0.496, 0.114) : Size: 788577
+Center: (0.621, 0.378) : Size: 775213
+Center: (0.435, 0.613) : Size: 858834
+Center: (0.126, 0.519) : Size: 877106
+Center: (0.141, 0.149) : Size: 898472
+Center: (0.845, 0.876) : Size: 794542
+Center: (0.833, 0.125) : Size: 826805
+Center: (0.333, 0.334) : Size: 721323
+Center: (0.804, 0.635) : Size: 870705
+Center: (0.514, 0.868) : Size: 893365
+Center: (0.888, 0.387) : Size: 657729
+Iterations: 20
+
+real	0m2.438s
+user	0m58.769s
+sys	0m2.090s
+--------------------- 14 clusters ---------------------
+N = 10000000, K = 14
+Center: (0.340, 0.679) : Size: 681027
+Center: (0.576, 0.120) : Size: 637507
+Center: (0.644, 0.346) : Size: 638014
+Center: (0.590, 0.596) : Size: 710856
+Center: (0.114, 0.531) : Size: 770685
+Center: (0.105, 0.186) : Size: 745567
+Center: (0.840, 0.879) : Size: 763612
+Center: (0.860, 0.124) : Size: 700380
+Center: (0.324, 0.117) : Size: 602390
+Center: (0.858, 0.638) : Size: 697157
+Center: (0.523, 0.879) : Size: 812818
+Center: (0.886, 0.386) : Size: 609048
+Center: (0.355, 0.382) : Size: 757894
+Center: (0.153, 0.866) : Size: 873045
+Iterations: 20
+
+real	0m2.437s
+user	0m58.831s
+sys	0m2.173s
+--------------------- 16 clusters ---------------------
+N = 10000000, K = 16
+Center: (0.600, 0.643) : Size: 656034
+Center: (0.595, 0.129) : Size: 647618
+Center: (0.700, 0.373) : Size: 567113
+Center: (0.481, 0.402) : Size: 591810
+Center: (0.097, 0.521) : Size: 639422
+Center: (0.103, 0.155) : Size: 663240
+Center: (0.881, 0.867) : Size: 626993
+Center: (0.861, 0.115) : Size: 635714
+Center: (0.349, 0.118) : Size: 600040
+Center: (0.867, 0.611) : Size: 662110
+Center: (0.640, 0.882) : Size: 595987
+Center: (0.906, 0.355) : Size: 496083
+Center: (0.258, 0.352) : Size: 572576
+Center: (0.120, 0.846) : Size: 751317
+Center: (0.323, 0.633) : Size: 649148
+Center: (0.383, 0.879) : Size: 644795
+Iterations: 20
+
+real	0m2.305s
+user	0m54.997s
+sys	0m2.259s
+--------------------- 18 clusters ---------------------
+N = 10000000, K = 18
+Center: (0.622, 0.646) : Size: 625847
+Center: (0.620, 0.128) : Size: 613289
+Center: (0.716, 0.376) : Size: 526476
+Center: (0.516, 0.398) : Size: 533828
+Center: (0.122, 0.496) : Size: 504404
+Center: (0.107, 0.283) : Size: 446684
+Center: (0.883, 0.867) : Size: 616439
+Center: (0.870, 0.116) : Size: 597501
+Center: (0.383, 0.121) : Size: 581512
+Center: (0.875, 0.611) : Size: 626052
+Center: (0.645, 0.885) : Size: 574845
+Center: (0.910, 0.355) : Size: 470133
+Center: (0.316, 0.352) : Size: 503718
+Center: (0.127, 0.704) : Size: 520058
+Center: (0.365, 0.617) : Size: 600136
+Center: (0.396, 0.870) : Size: 645859
+Center: (0.133, 0.092) : Size: 483818
+Center: (0.136, 0.903) : Size: 529401
+Iterations: 20
+
+real	0m3.208s
+user	1m20.962s
+sys	0m2.188s
+--------------------- 20 clusters ---------------------
+N = 10000000, K = 20
+Center: (0.583, 0.693) : Size: 535067
+Center: (0.627, 0.095) : Size: 480208
+Center: (0.722, 0.279) : Size: 433008
+Center: (0.661, 0.492) : Size: 508572
+Center: (0.131, 0.499) : Size: 512870
+Center: (0.085, 0.288) : Size: 384747
+Center: (0.894, 0.875) : Size: 529130
+Center: (0.886, 0.117) : Size: 556237
+Center: (0.380, 0.102) : Size: 496297
+Center: (0.869, 0.636) : Size: 615053
+Center: (0.676, 0.888) : Size: 525971
+Center: (0.902, 0.387) : Size: 513700
+Center: (0.282, 0.310) : Size: 455920
+Center: (0.097, 0.703) : Size: 433950
+Center: (0.396, 0.515) : Size: 512556
+Center: (0.422, 0.900) : Size: 529734
+Center: (0.132, 0.093) : Size: 477775
+Center: (0.142, 0.905) : Size: 532736
+Center: (0.317, 0.712) : Size: 492561
+Center: (0.501, 0.307) : Size: 473908
+Iterations: 20
+
+real	0m2.376s
+user	0m56.624s
+sys	0m2.354s
+--------------------- 22 clusters ---------------------
+N = 10000000, K = 22
+Center: (0.576, 0.683) : Size: 499422
+Center: (0.554, 0.107) : Size: 425155
+Center: (0.721, 0.289) : Size: 439771
+Center: (0.665, 0.499) : Size: 491362
+Center: (0.128, 0.488) : Size: 493843
+Center: (0.087, 0.281) : Size: 374285
+Center: (0.908, 0.883) : Size: 442848
+Center: (0.753, 0.087) : Size: 358281
+Center: (0.346, 0.106) : Size: 452976
+Center: (0.869, 0.651) : Size: 580970
+Center: (0.718, 0.872) : Size: 483578
+Center: (0.920, 0.148) : Size: 449568
+Center: (0.281, 0.312) : Size: 433910
+Center: (0.103, 0.688) : Size: 434286
+Center: (0.397, 0.505) : Size: 476512
+Center: (0.513, 0.892) : Size: 444349
+Center: (0.121, 0.092) : Size: 434252
+Center: (0.105, 0.896) : Size: 436439
+Center: (0.322, 0.690) : Size: 469842
+Center: (0.500, 0.317) : Size: 452874
+Center: (0.900, 0.414) : Size: 501166
+Center: (0.311, 0.897) : Size: 424311
+Iterations: 20
+
+real	0m6.570s
+user	2m55.703s
+sys	0m1.958s
+--------------------- 24 clusters ---------------------
+N = 10000000, K = 24
+Center: (0.603, 0.677) : Size: 480447
+Center: (0.601, 0.097) : Size: 375539
+Center: (0.736, 0.282) : Size: 418568
+Center: (0.693, 0.488) : Size: 445126
+Center: (0.100, 0.362) : Size: 416237
+Center: (0.075, 0.138) : Size: 378924
+Center: (0.908, 0.885) : Size: 433576
+Center: (0.795, 0.079) : Size: 333772
+Center: (0.406, 0.102) : Size: 379234
+Center: (0.874, 0.657) : Size: 552447
+Center: (0.719, 0.876) : Size: 467127
+Center: (0.930, 0.165) : Size: 393235
+Center: (0.295, 0.296) : Size: 437444
+Center: (0.129, 0.740) : Size: 420279
+Center: (0.281, 0.517) : Size: 403013
+Center: (0.517, 0.893) : Size: 442035
+Center: (0.224, 0.090) : Size: 333877
+Center: (0.099, 0.913) : Size: 356134
+Center: (0.371, 0.702) : Size: 453067
+Center: (0.474, 0.478) : Size: 427717
+Center: (0.906, 0.423) : Size: 463699
+Center: (0.308, 0.901) : Size: 412398
+Center: (0.520, 0.285) : Size: 409599
+Center: (0.093, 0.565) : Size: 366506
+Iterations: 20
+
+real	0m2.086s
+user	0m47.923s
+sys	0m2.709s
+--------------------- 26 clusters ---------------------
+N = 10000000, K = 26
+Center: (0.666, 0.670) : Size: 424394
+Center: (0.605, 0.093) : Size: 361813
+Center: (0.742, 0.283) : Size: 410132
+Center: (0.642, 0.478) : Size: 478908
+Center: (0.103, 0.360) : Size: 405131
+Center: (0.073, 0.136) : Size: 369268
+Center: (0.921, 0.882) : Size: 383152
+Center: (0.798, 0.079) : Size: 332868
+Center: (0.406, 0.103) : Size: 382369
+Center: (0.885, 0.646) : Size: 510070
+Center: (0.760, 0.876) : Size: 391126
+Center: (0.931, 0.167) : Size: 389057
+Center: (0.276, 0.282) : Size: 406506
+Center: (0.087, 0.732) : Size: 332863
+Center: (0.348, 0.526) : Size: 396720
+Center: (0.594, 0.892) : Size: 365885
+Center: (0.222, 0.083) : Size: 316496
+Center: (0.087, 0.914) : Size: 305552
+Center: (0.267, 0.693) : Size: 352150
+Center: (0.435, 0.397) : Size: 336203
+Center: (0.895, 0.425) : Size: 486120
+Center: (0.423, 0.904) : Size: 334182
+Center: (0.535, 0.267) : Size: 362306
+Center: (0.114, 0.541) : Size: 406526
+Center: (0.468, 0.698) : Size: 411328
+Center: (0.257, 0.891) : Size: 348875
+Iterations: 20
+
+real	0m7.010s
+user	2m51.401s
+sys	0m2.029s
+--------------------- 28 clusters ---------------------
+N = 10000000, K = 28
+Center: (0.658, 0.671) : Size: 424438
+Center: (0.580, 0.094) : Size: 336451
+Center: (0.688, 0.287) : Size: 377992
+Center: (0.715, 0.479) : Size: 389917
+Center: (0.111, 0.420) : Size: 345497
+Center: (0.079, 0.084) : Size: 275599
+Center: (0.919, 0.897) : Size: 347429
+Center: (0.756, 0.100) : Size: 338494
+Center: (0.402, 0.098) : Size: 333771
+Center: (0.882, 0.693) : Size: 437939
+Center: (0.752, 0.884) : Size: 374702
+Center: (0.920, 0.103) : Size: 332270
+Center: (0.302, 0.311) : Size: 392697
+Center: (0.090, 0.754) : Size: 306636
+Center: (0.312, 0.511) : Size: 385117
+Center: (0.588, 0.888) : Size: 362717
+Center: (0.241, 0.106) : Size: 327951
+Center: (0.087, 0.921) : Size: 283269
+Center: (0.269, 0.701) : Size: 347083
+Center: (0.509, 0.476) : Size: 413140
+Center: (0.907, 0.502) : Size: 374817
+Center: (0.422, 0.901) : Size: 336128
+Center: (0.493, 0.279) : Size: 359157
+Center: (0.098, 0.582) : Size: 330685
+Center: (0.459, 0.692) : Size: 396544
+Center: (0.258, 0.897) : Size: 333140
+Center: (0.895, 0.304) : Size: 407046
+Center: (0.098, 0.256) : Size: 329374
+Iterations: 20
+
+real	0m2.140s
+user	0m51.608s
+sys	0m2.538s
+--------------------- 30 clusters ---------------------
+N = 10000000, K = 30
+Center: (0.559, 0.637) : Size: 368687
+Center: (0.622, 0.100) : Size: 306268
+Center: (0.713, 0.281) : Size: 349168
+Center: (0.679, 0.458) : Size: 383475
+Center: (0.111, 0.426) : Size: 342099
+Center: (0.071, 0.087) : Size: 255072
+Center: (0.914, 0.907) : Size: 330787
+Center: (0.780, 0.098) : Size: 301505
+Center: (0.345, 0.161) : Size: 273839
+Center: (0.737, 0.659) : Size: 373164
+Center: (0.748, 0.882) : Size: 371301
+Center: (0.928, 0.105) : Size: 302511
+Center: (0.293, 0.330) : Size: 371562
+Center: (0.086, 0.757) : Size: 293015
+Center: (0.316, 0.531) : Size: 370396
+Center: (0.590, 0.876) : Size: 377563
+Center: (0.224, 0.088) : Size: 291556
+Center: (0.087, 0.922) : Size: 279361
+Center: (0.249, 0.697) : Size: 306144
+Center: (0.478, 0.449) : Size: 353496
+Center: (0.895, 0.501) : Size: 409142
+Center: (0.427, 0.919) : Size: 296313
+Center: (0.511, 0.270) : Size: 358785
+Center: (0.095, 0.583) : Size: 316422
+Center: (0.420, 0.733) : Size: 337498
+Center: (0.258, 0.895) : Size: 338291
+Center: (0.903, 0.307) : Size: 378905
+Center: (0.099, 0.259) : Size: 334054
+Center: (0.460, 0.072) : Size: 268601
+Center: (0.912, 0.708) : Size: 361020
+Iterations: 20
+
+real	0m2.365s
+user	0m55.561s
+sys	0m4.349s
+--------------------- 32 clusters ---------------------
+N = 10000000, K = 32
+Center: (0.519, 0.600) : Size: 363242
+Center: (0.626, 0.106) : Size: 299218
+Center: (0.714, 0.296) : Size: 363735
+Center: (0.583, 0.420) : Size: 298934
+Center: (0.105, 0.421) : Size: 330956
+Center: (0.068, 0.084) : Size: 236515
+Center: (0.913, 0.921) : Size: 283020
+Center: (0.775, 0.099) : Size: 294616
+Center: (0.344, 0.120) : Size: 284134
+Center: (0.903, 0.599) : Size: 326940
+Center: (0.737, 0.907) : Size: 328465
+Center: (0.926, 0.086) : Size: 262792
+Center: (0.273, 0.303) : Size: 352851
+Center: (0.086, 0.757) : Size: 291869
+Center: (0.292, 0.529) : Size: 350447
+Center: (0.574, 0.879) : Size: 347782
+Center: (0.210, 0.095) : Size: 271001
+Center: (0.085, 0.922) : Size: 274196
+Center: (0.252, 0.700) : Size: 307223
+Center: (0.413, 0.420) : Size: 297491
+Center: (0.901, 0.426) : Size: 330546
+Center: (0.417, 0.922) : Size: 280668
+Center: (0.494, 0.253) : Size: 336378
+Center: (0.092, 0.584) : Size: 310280
+Center: (0.423, 0.739) : Size: 336132
+Center: (0.253, 0.895) : Size: 329093
+Center: (0.905, 0.259) : Size: 317658
+Center: (0.089, 0.254) : Size: 302041
+Center: (0.478, 0.073) : Size: 240919
+Center: (0.895, 0.760) : Size: 326534
+Center: (0.728, 0.516) : Size: 344497
+Center: (0.691, 0.708) : Size: 379827
+Iterations: 20
+
+real	0m2.219s
+user	0m53.692s
+sys	0m2.428s

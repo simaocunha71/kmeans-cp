@@ -52,7 +52,7 @@ int main (int argc, char** argv){
     do{
         converged = update_clusters(space_x, space_y, clusters_x, clusters_y, samples_id, clusters_npoints, world_size, world_rank, status,  N_SAMPLES, K_CLUSTERS);
         iterations++;
-    }while(!converged);
+    }while(!converged && iterations <= 20);
 
     //Onlu the masted node will show the results obtained from the children
     if(world_rank == 0)

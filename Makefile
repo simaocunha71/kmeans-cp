@@ -15,4 +15,4 @@ $(BIN)utils.o: $(SRC)utils.c $(INCLUDES)utils.h
 clean:
 		rm -r bin/*
 run:
-		./$(BIN)$(EXEC)
+		mpirun -np 2 ./$(BIN)$(EXEC) 10000000 4

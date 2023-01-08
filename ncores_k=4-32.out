@@ -1,0 +1,752 @@
+Setting clusters to K = 4
+--------------------- 2 TASKS ---------------------
+N = 10000000, K = 4
+Center: (0.250, 0.750) : Size: 2498703
+Center: (0.250, 0.250) : Size: 2501647
+Center: (0.750, 0.250) : Size: 2499404
+Center: (0.750, 0.750) : Size: 2500246
+Iterations: 20
+
+real	0m2.049s
+user	0m3.446s
+sys	0m0.155s
+--------------------- 4 TASKS ---------------------
+N = 10000000, K = 4
+Center: (0.250, 0.750) : Size: 2498764
+Center: (0.250, 0.250) : Size: 2501660
+Center: (0.750, 0.250) : Size: 2499381
+Center: (0.750, 0.750) : Size: 2500195
+Iterations: 20
+
+real	0m1.634s
+user	0m5.307s
+sys	0m0.290s
+--------------------- 6 TASKS ---------------------
+N = 10000000, K = 4
+Center: (0.250, 0.750) : Size: 2498763
+Center: (0.250, 0.250) : Size: 2501656
+Center: (0.750, 0.250) : Size: 2499363
+Center: (0.750, 0.750) : Size: 2500218
+Iterations: 20
+
+real	0m1.589s
+user	0m6.604s
+sys	0m0.423s
+--------------------- 8 TASKS ---------------------
+N = 10000000, K = 4
+Center: (0.250, 0.750) : Size: 2498773
+Center: (0.250, 0.250) : Size: 2501624
+Center: (0.750, 0.250) : Size: 2499379
+Center: (0.750, 0.750) : Size: 2500224
+Iterations: 20
+
+real	0m1.364s
+user	0m8.125s
+sys	0m0.525s
+--------------------- 10 TASKS ---------------------
+N = 10000000, K = 4
+Center: (0.250, 0.750) : Size: 2498767
+Center: (0.250, 0.250) : Size: 2501628
+Center: (0.750, 0.250) : Size: 2499387
+Center: (0.750, 0.750) : Size: 2500218
+Iterations: 20
+
+real	0m1.236s
+user	0m8.939s
+sys	0m0.638s
+--------------------- 12 TASKS ---------------------
+N = 10000000, K = 4
+Center: (0.250, 0.750) : Size: 2498784
+Center: (0.250, 0.250) : Size: 2501613
+Center: (0.750, 0.250) : Size: 2499390
+Center: (0.750, 0.750) : Size: 2500213
+Iterations: 20
+
+real	0m1.195s
+user	0m10.418s
+sys	0m0.672s
+--------------------- 14 TASKS ---------------------
+N = 10000000, K = 4
+Center: (0.250, 0.750) : Size: 2498783
+Center: (0.250, 0.250) : Size: 2501635
+Center: (0.750, 0.250) : Size: 2499392
+Center: (0.750, 0.750) : Size: 2500190
+Iterations: 20
+
+real	0m1.381s
+user	0m14.219s
+sys	0m0.844s
+--------------------- 16 TASKS ---------------------
+N = 10000000, K = 4
+Center: (0.250, 0.750) : Size: 2498784
+Center: (0.250, 0.250) : Size: 2501623
+Center: (0.750, 0.250) : Size: 2499395
+Center: (0.750, 0.750) : Size: 2500198
+Iterations: 20
+
+real	0m1.183s
+user	0m13.164s
+sys	0m0.974s
+--------------------- 18 TASKS ---------------------
+N = 10000000, K = 4
+Center: (0.250, 0.750) : Size: 2498786
+Center: (0.250, 0.250) : Size: 2501626
+Center: (0.750, 0.250) : Size: 2499391
+Center: (0.750, 0.750) : Size: 2500197
+Iterations: 20
+
+real	0m1.167s
+user	0m14.717s
+sys	0m1.137s
+--------------------- 20 TASKS ---------------------
+N = 10000000, K = 4
+Center: (0.250, 0.750) : Size: 2498778
+Center: (0.250, 0.250) : Size: 2501630
+Center: (0.750, 0.250) : Size: 2499394
+Center: (0.750, 0.750) : Size: 2500198
+Iterations: 20
+
+real	0m1.221s
+user	0m17.368s
+sys	0m1.259s
+--------------------- 22 TASKS ---------------------
+N = 10000000, K = 4
+Center: (0.250, 0.750) : Size: 2498772
+Center: (0.250, 0.250) : Size: 2501625
+Center: (0.750, 0.250) : Size: 2499391
+Center: (0.750, 0.750) : Size: 2500212
+Iterations: 20
+
+real	0m1.460s
+user	0m23.285s
+sys	0m1.491s
+--------------------- 24 TASKS ---------------------
+N = 10000000, K = 4
+Center: (0.250, 0.750) : Size: 2498782
+Center: (0.250, 0.250) : Size: 2501622
+Center: (0.750, 0.250) : Size: 2499398
+Center: (0.750, 0.750) : Size: 2500198
+Iterations: 20
+
+real	0m1.281s
+user	0m21.702s
+sys	0m1.565s
+--------------------- 26 TASKS ---------------------
+N = 10000000, K = 4
+Center: (0.250, 0.750) : Size: 2498778
+Center: (0.250, 0.250) : Size: 2501630
+Center: (0.750, 0.250) : Size: 2499388
+Center: (0.750, 0.750) : Size: 2500204
+Iterations: 20
+
+real	0m1.386s
+user	0m25.113s
+sys	0m1.960s
+--------------------- 28 TASKS ---------------------
+N = 10000000, K = 4
+Center: (0.250, 0.750) : Size: 2498782
+Center: (0.250, 0.250) : Size: 2501630
+Center: (0.750, 0.250) : Size: 2499391
+Center: (0.750, 0.750) : Size: 2500197
+Iterations: 20
+
+real	0m1.384s
+user	0m27.313s
+sys	0m2.032s
+--------------------- 30 TASKS ---------------------
+N = 10000000, K = 4
+Center: (0.250, 0.750) : Size: 2498776
+Center: (0.250, 0.250) : Size: 2501637
+Center: (0.750, 0.250) : Size: 2499384
+Center: (0.750, 0.750) : Size: 2500203
+Iterations: 20
+
+real	0m1.735s
+user	0m37.866s
+sys	0m2.674s
+Setting clusters to K = 32
+--------------------- 2 TASKS ---------------------
+N = 10000000, K = 32
+Center: (0.519, 0.600) : Size: 363219
+Center: (0.626, 0.106) : Size: 299240
+Center: (0.714, 0.296) : Size: 363756
+Center: (0.583, 0.420) : Size: 298952
+Center: (0.105, 0.421) : Size: 330977
+Center: (0.068, 0.084) : Size: 236521
+Center: (0.913, 0.921) : Size: 282938
+Center: (0.775, 0.099) : Size: 294598
+Center: (0.344, 0.120) : Size: 284144
+Center: (0.903, 0.599) : Size: 326925
+Center: (0.737, 0.907) : Size: 328444
+Center: (0.926, 0.086) : Size: 262744
+Center: (0.273, 0.303) : Size: 352871
+Center: (0.086, 0.757) : Size: 291897
+Center: (0.292, 0.529) : Size: 350458
+Center: (0.574, 0.879) : Size: 347779
+Center: (0.210, 0.095) : Size: 271012
+Center: (0.085, 0.922) : Size: 274173
+Center: (0.252, 0.700) : Size: 307262
+Center: (0.413, 0.420) : Size: 297500
+Center: (0.901, 0.426) : Size: 330531
+Center: (0.417, 0.922) : Size: 280627
+Center: (0.494, 0.253) : Size: 336402
+Center: (0.092, 0.584) : Size: 310282
+Center: (0.423, 0.739) : Size: 336166
+Center: (0.253, 0.895) : Size: 329086
+Center: (0.905, 0.259) : Size: 317604
+Center: (0.089, 0.254) : Size: 302042
+Center: (0.478, 0.073) : Size: 240932
+Center: (0.895, 0.760) : Size: 326545
+Center: (0.728, 0.516) : Size: 344494
+Center: (0.691, 0.708) : Size: 379879
+Iterations: 20
+
+real	0m7.688s
+user	0m14.827s
+sys	0m0.110s
+--------------------- 4 TASKS ---------------------
+N = 10000000, K = 32
+Center: (0.519, 0.600) : Size: 363220
+Center: (0.626, 0.106) : Size: 299217
+Center: (0.714, 0.296) : Size: 363732
+Center: (0.583, 0.420) : Size: 298935
+Center: (0.105, 0.421) : Size: 330962
+Center: (0.068, 0.084) : Size: 236519
+Center: (0.913, 0.921) : Size: 282989
+Center: (0.775, 0.099) : Size: 294611
+Center: (0.344, 0.120) : Size: 284132
+Center: (0.903, 0.599) : Size: 326943
+Center: (0.737, 0.907) : Size: 328474
+Center: (0.926, 0.086) : Size: 262763
+Center: (0.273, 0.303) : Size: 352855
+Center: (0.086, 0.757) : Size: 291901
+Center: (0.292, 0.529) : Size: 350433
+Center: (0.574, 0.879) : Size: 347795
+Center: (0.210, 0.095) : Size: 270996
+Center: (0.085, 0.922) : Size: 274200
+Center: (0.252, 0.700) : Size: 307251
+Center: (0.413, 0.420) : Size: 297493
+Center: (0.901, 0.426) : Size: 330542
+Center: (0.417, 0.922) : Size: 280677
+Center: (0.494, 0.253) : Size: 336385
+Center: (0.092, 0.584) : Size: 310270
+Center: (0.423, 0.739) : Size: 336151
+Center: (0.253, 0.895) : Size: 329102
+Center: (0.905, 0.259) : Size: 317626
+Center: (0.089, 0.254) : Size: 302037
+Center: (0.478, 0.073) : Size: 240921
+Center: (0.895, 0.760) : Size: 326526
+Center: (0.728, 0.516) : Size: 344495
+Center: (0.691, 0.708) : Size: 379847
+Iterations: 20
+
+real	0m4.361s
+user	0m16.231s
+sys	0m0.278s
+--------------------- 6 TASKS ---------------------
+N = 10000000, K = 32
+Center: (0.519, 0.600) : Size: 363220
+Center: (0.626, 0.106) : Size: 299220
+Center: (0.714, 0.296) : Size: 363740
+Center: (0.583, 0.420) : Size: 298939
+Center: (0.105, 0.421) : Size: 330950
+Center: (0.068, 0.084) : Size: 236512
+Center: (0.913, 0.921) : Size: 283006
+Center: (0.775, 0.099) : Size: 294619
+Center: (0.344, 0.120) : Size: 284134
+Center: (0.903, 0.599) : Size: 326944
+Center: (0.737, 0.907) : Size: 328472
+Center: (0.926, 0.086) : Size: 262790
+Center: (0.273, 0.303) : Size: 352849
+Center: (0.086, 0.757) : Size: 291891
+Center: (0.292, 0.529) : Size: 350432
+Center: (0.574, 0.879) : Size: 347789
+Center: (0.210, 0.095) : Size: 270996
+Center: (0.085, 0.922) : Size: 274195
+Center: (0.252, 0.700) : Size: 307247
+Center: (0.413, 0.420) : Size: 297477
+Center: (0.901, 0.426) : Size: 330533
+Center: (0.417, 0.922) : Size: 280662
+Center: (0.494, 0.253) : Size: 336385
+Center: (0.092, 0.584) : Size: 310279
+Center: (0.423, 0.739) : Size: 336141
+Center: (0.253, 0.895) : Size: 329092
+Center: (0.905, 0.259) : Size: 317651
+Center: (0.089, 0.254) : Size: 302034
+Center: (0.478, 0.073) : Size: 240918
+Center: (0.895, 0.760) : Size: 326531
+Center: (0.728, 0.516) : Size: 344501
+Center: (0.691, 0.708) : Size: 379851
+Iterations: 20
+
+real	0m3.275s
+user	0m17.881s
+sys	0m0.351s
+--------------------- 8 TASKS ---------------------
+N = 10000000, K = 32
+Center: (0.519, 0.600) : Size: 363260
+Center: (0.626, 0.106) : Size: 299208
+Center: (0.714, 0.296) : Size: 363738
+Center: (0.583, 0.420) : Size: 298944
+Center: (0.105, 0.421) : Size: 330955
+Center: (0.068, 0.084) : Size: 236514
+Center: (0.913, 0.921) : Size: 283015
+Center: (0.775, 0.099) : Size: 294624
+Center: (0.344, 0.120) : Size: 284128
+Center: (0.903, 0.599) : Size: 326942
+Center: (0.737, 0.907) : Size: 328464
+Center: (0.926, 0.086) : Size: 262792
+Center: (0.273, 0.303) : Size: 352846
+Center: (0.086, 0.757) : Size: 291877
+Center: (0.292, 0.529) : Size: 350438
+Center: (0.574, 0.879) : Size: 347804
+Center: (0.210, 0.095) : Size: 271001
+Center: (0.085, 0.922) : Size: 274200
+Center: (0.252, 0.700) : Size: 307227
+Center: (0.413, 0.420) : Size: 297496
+Center: (0.901, 0.426) : Size: 330533
+Center: (0.417, 0.922) : Size: 280678
+Center: (0.494, 0.253) : Size: 336379
+Center: (0.092, 0.584) : Size: 310276
+Center: (0.423, 0.739) : Size: 336107
+Center: (0.253, 0.896) : Size: 329095
+Center: (0.905, 0.259) : Size: 317656
+Center: (0.089, 0.254) : Size: 302037
+Center: (0.478, 0.073) : Size: 240917
+Center: (0.895, 0.760) : Size: 326536
+Center: (0.728, 0.516) : Size: 344493
+Center: (0.691, 0.708) : Size: 379820
+Iterations: 20
+
+real	0m2.719s
+user	0m19.342s
+sys	0m0.457s
+--------------------- 10 TASKS ---------------------
+N = 10000000, K = 32
+Center: (0.519, 0.600) : Size: 363243
+Center: (0.626, 0.106) : Size: 299213
+Center: (0.714, 0.296) : Size: 363737
+Center: (0.583, 0.420) : Size: 298939
+Center: (0.105, 0.421) : Size: 330955
+Center: (0.068, 0.084) : Size: 236513
+Center: (0.913, 0.921) : Size: 283015
+Center: (0.775, 0.099) : Size: 294622
+Center: (0.344, 0.120) : Size: 284126
+Center: (0.903, 0.599) : Size: 326948
+Center: (0.737, 0.907) : Size: 328464
+Center: (0.926, 0.086) : Size: 262794
+Center: (0.273, 0.303) : Size: 352850
+Center: (0.086, 0.757) : Size: 291867
+Center: (0.292, 0.529) : Size: 350447
+Center: (0.574, 0.879) : Size: 347786
+Center: (0.210, 0.095) : Size: 270998
+Center: (0.085, 0.922) : Size: 274195
+Center: (0.252, 0.700) : Size: 307224
+Center: (0.413, 0.420) : Size: 297490
+Center: (0.901, 0.426) : Size: 330552
+Center: (0.417, 0.922) : Size: 280662
+Center: (0.494, 0.253) : Size: 336381
+Center: (0.092, 0.584) : Size: 310281
+Center: (0.423, 0.739) : Size: 336123
+Center: (0.253, 0.895) : Size: 329089
+Center: (0.905, 0.259) : Size: 317658
+Center: (0.089, 0.254) : Size: 302038
+Center: (0.478, 0.073) : Size: 240921
+Center: (0.895, 0.760) : Size: 326542
+Center: (0.728, 0.516) : Size: 344498
+Center: (0.691, 0.708) : Size: 379829
+Iterations: 20
+
+real	0m2.653s
+user	0m23.065s
+sys	0m0.574s
+--------------------- 12 TASKS ---------------------
+N = 10000000, K = 32
+Center: (0.519, 0.600) : Size: 363250
+Center: (0.626, 0.106) : Size: 299212
+Center: (0.714, 0.296) : Size: 363739
+Center: (0.583, 0.420) : Size: 298943
+Center: (0.105, 0.421) : Size: 330958
+Center: (0.068, 0.084) : Size: 236513
+Center: (0.913, 0.921) : Size: 283013
+Center: (0.775, 0.099) : Size: 294619
+Center: (0.344, 0.120) : Size: 284132
+Center: (0.903, 0.599) : Size: 326938
+Center: (0.737, 0.907) : Size: 328464
+Center: (0.926, 0.086) : Size: 262798
+Center: (0.273, 0.303) : Size: 352844
+Center: (0.086, 0.757) : Size: 291868
+Center: (0.292, 0.529) : Size: 350449
+Center: (0.574, 0.879) : Size: 347788
+Center: (0.210, 0.095) : Size: 270999
+Center: (0.085, 0.922) : Size: 274194
+Center: (0.252, 0.700) : Size: 307220
+Center: (0.413, 0.420) : Size: 297492
+Center: (0.901, 0.426) : Size: 330545
+Center: (0.417, 0.922) : Size: 280665
+Center: (0.494, 0.253) : Size: 336385
+Center: (0.092, 0.584) : Size: 310277
+Center: (0.423, 0.739) : Size: 336125
+Center: (0.253, 0.896) : Size: 329091
+Center: (0.905, 0.259) : Size: 317662
+Center: (0.089, 0.254) : Size: 302040
+Center: (0.478, 0.073) : Size: 240918
+Center: (0.895, 0.760) : Size: 326535
+Center: (0.728, 0.516) : Size: 344499
+Center: (0.691, 0.708) : Size: 379825
+Iterations: 20
+
+real	0m2.292s
+user	0m23.710s
+sys	0m0.649s
+--------------------- 14 TASKS ---------------------
+N = 10000000, K = 32
+Center: (0.519, 0.600) : Size: 363251
+Center: (0.626, 0.106) : Size: 299216
+Center: (0.714, 0.296) : Size: 363741
+Center: (0.583, 0.420) : Size: 298941
+Center: (0.105, 0.421) : Size: 330956
+Center: (0.068, 0.084) : Size: 236515
+Center: (0.913, 0.921) : Size: 283012
+Center: (0.775, 0.099) : Size: 294616
+Center: (0.344, 0.120) : Size: 284134
+Center: (0.903, 0.599) : Size: 326939
+Center: (0.737, 0.907) : Size: 328460
+Center: (0.926, 0.086) : Size: 262796
+Center: (0.273, 0.303) : Size: 352846
+Center: (0.086, 0.757) : Size: 291869
+Center: (0.292, 0.529) : Size: 350448
+Center: (0.574, 0.879) : Size: 347791
+Center: (0.210, 0.095) : Size: 270999
+Center: (0.085, 0.922) : Size: 274194
+Center: (0.252, 0.700) : Size: 307220
+Center: (0.413, 0.420) : Size: 297493
+Center: (0.901, 0.426) : Size: 330544
+Center: (0.417, 0.922) : Size: 280661
+Center: (0.494, 0.253) : Size: 336382
+Center: (0.092, 0.584) : Size: 310279
+Center: (0.423, 0.739) : Size: 336127
+Center: (0.253, 0.896) : Size: 329091
+Center: (0.905, 0.259) : Size: 317657
+Center: (0.089, 0.254) : Size: 302042
+Center: (0.478, 0.073) : Size: 240919
+Center: (0.895, 0.760) : Size: 326535
+Center: (0.728, 0.516) : Size: 344498
+Center: (0.691, 0.708) : Size: 379828
+Iterations: 20
+
+real	0m2.085s
+user	0m24.242s
+sys	0m0.867s
+--------------------- 16 TASKS ---------------------
+N = 10000000, K = 32
+Center: (0.519, 0.600) : Size: 363241
+Center: (0.626, 0.106) : Size: 299216
+Center: (0.714, 0.296) : Size: 363737
+Center: (0.583, 0.420) : Size: 298941
+Center: (0.105, 0.421) : Size: 330959
+Center: (0.068, 0.084) : Size: 236515
+Center: (0.913, 0.921) : Size: 283014
+Center: (0.775, 0.099) : Size: 294615
+Center: (0.344, 0.120) : Size: 284135
+Center: (0.903, 0.599) : Size: 326941
+Center: (0.737, 0.907) : Size: 328464
+Center: (0.926, 0.086) : Size: 262792
+Center: (0.273, 0.303) : Size: 352852
+Center: (0.086, 0.757) : Size: 291868
+Center: (0.292, 0.529) : Size: 350447
+Center: (0.574, 0.879) : Size: 347784
+Center: (0.210, 0.095) : Size: 271000
+Center: (0.085, 0.922) : Size: 274194
+Center: (0.252, 0.700) : Size: 307227
+Center: (0.413, 0.420) : Size: 297491
+Center: (0.901, 0.426) : Size: 330543
+Center: (0.417, 0.922) : Size: 280661
+Center: (0.494, 0.253) : Size: 336380
+Center: (0.092, 0.584) : Size: 310278
+Center: (0.423, 0.739) : Size: 336126
+Center: (0.253, 0.895) : Size: 329090
+Center: (0.905, 0.259) : Size: 317659
+Center: (0.089, 0.254) : Size: 302042
+Center: (0.478, 0.073) : Size: 240920
+Center: (0.895, 0.760) : Size: 326539
+Center: (0.728, 0.516) : Size: 344495
+Center: (0.691, 0.708) : Size: 379834
+Iterations: 20
+
+real	0m2.120s
+user	0m25.825s
+sys	0m0.981s
+--------------------- 18 TASKS ---------------------
+N = 10000000, K = 32
+Center: (0.519, 0.600) : Size: 363241
+Center: (0.626, 0.106) : Size: 299215
+Center: (0.714, 0.296) : Size: 363735
+Center: (0.583, 0.420) : Size: 298941
+Center: (0.105, 0.421) : Size: 330955
+Center: (0.068, 0.084) : Size: 236515
+Center: (0.913, 0.921) : Size: 283015
+Center: (0.775, 0.099) : Size: 294617
+Center: (0.344, 0.120) : Size: 284130
+Center: (0.903, 0.599) : Size: 326941
+Center: (0.737, 0.907) : Size: 328463
+Center: (0.926, 0.086) : Size: 262797
+Center: (0.273, 0.303) : Size: 352845
+Center: (0.086, 0.757) : Size: 291866
+Center: (0.292, 0.529) : Size: 350447
+Center: (0.574, 0.879) : Size: 347780
+Center: (0.210, 0.095) : Size: 271000
+Center: (0.085, 0.922) : Size: 274191
+Center: (0.252, 0.700) : Size: 307229
+Center: (0.413, 0.420) : Size: 297485
+Center: (0.901, 0.426) : Size: 330543
+Center: (0.417, 0.922) : Size: 280663
+Center: (0.494, 0.253) : Size: 336381
+Center: (0.092, 0.584) : Size: 310278
+Center: (0.423, 0.739) : Size: 336134
+Center: (0.253, 0.896) : Size: 329093
+Center: (0.905, 0.259) : Size: 317662
+Center: (0.089, 0.254) : Size: 302042
+Center: (0.478, 0.073) : Size: 240919
+Center: (0.895, 0.760) : Size: 326541
+Center: (0.728, 0.516) : Size: 344499
+Center: (0.691, 0.708) : Size: 379837
+Iterations: 20
+
+real	0m1.882s
+user	0m27.460s
+sys	0m1.137s
+--------------------- 20 TASKS ---------------------
+N = 10000000, K = 32
+Center: (0.519, 0.600) : Size: 363249
+Center: (0.626, 0.106) : Size: 299212
+Center: (0.714, 0.296) : Size: 363737
+Center: (0.583, 0.420) : Size: 298946
+Center: (0.105, 0.421) : Size: 330960
+Center: (0.068, 0.084) : Size: 236516
+Center: (0.913, 0.921) : Size: 283022
+Center: (0.775, 0.099) : Size: 294613
+Center: (0.344, 0.120) : Size: 284133
+Center: (0.903, 0.599) : Size: 326939
+Center: (0.737, 0.907) : Size: 328466
+Center: (0.926, 0.086) : Size: 262798
+Center: (0.273, 0.303) : Size: 352847
+Center: (0.086, 0.757) : Size: 291868
+Center: (0.292, 0.529) : Size: 350449
+Center: (0.574, 0.879) : Size: 347784
+Center: (0.210, 0.095) : Size: 271000
+Center: (0.085, 0.922) : Size: 274193
+Center: (0.252, 0.700) : Size: 307221
+Center: (0.413, 0.420) : Size: 297493
+Center: (0.901, 0.426) : Size: 330540
+Center: (0.417, 0.922) : Size: 280660
+Center: (0.494, 0.253) : Size: 336377
+Center: (0.092, 0.584) : Size: 310277
+Center: (0.423, 0.739) : Size: 336125
+Center: (0.253, 0.896) : Size: 329090
+Center: (0.905, 0.259) : Size: 317661
+Center: (0.089, 0.254) : Size: 302042
+Center: (0.478, 0.073) : Size: 240920
+Center: (0.895, 0.760) : Size: 326537
+Center: (0.728, 0.516) : Size: 344495
+Center: (0.691, 0.708) : Size: 379830
+Iterations: 20
+
+real	0m1.963s
+user	0m31.663s
+sys	0m1.303s
+--------------------- 22 TASKS ---------------------
+N = 10000000, K = 32
+Center: (0.519, 0.600) : Size: 363241
+Center: (0.626, 0.106) : Size: 299215
+Center: (0.714, 0.296) : Size: 363735
+Center: (0.583, 0.420) : Size: 298942
+Center: (0.105, 0.421) : Size: 330957
+Center: (0.068, 0.084) : Size: 236513
+Center: (0.913, 0.921) : Size: 283017
+Center: (0.775, 0.099) : Size: 294621
+Center: (0.344, 0.120) : Size: 284128
+Center: (0.903, 0.599) : Size: 326941
+Center: (0.737, 0.907) : Size: 328465
+Center: (0.926, 0.086) : Size: 262795
+Center: (0.273, 0.303) : Size: 352841
+Center: (0.086, 0.757) : Size: 291871
+Center: (0.292, 0.529) : Size: 350446
+Center: (0.574, 0.879) : Size: 347783
+Center: (0.210, 0.095) : Size: 270999
+Center: (0.085, 0.922) : Size: 274194
+Center: (0.252, 0.700) : Size: 307225
+Center: (0.413, 0.420) : Size: 297483
+Center: (0.901, 0.426) : Size: 330544
+Center: (0.417, 0.922) : Size: 280667
+Center: (0.494, 0.253) : Size: 336381
+Center: (0.092, 0.584) : Size: 310277
+Center: (0.423, 0.739) : Size: 336133
+Center: (0.253, 0.896) : Size: 329091
+Center: (0.905, 0.259) : Size: 317661
+Center: (0.089, 0.254) : Size: 302042
+Center: (0.478, 0.073) : Size: 240918
+Center: (0.895, 0.760) : Size: 326541
+Center: (0.728, 0.516) : Size: 344500
+Center: (0.691, 0.708) : Size: 379833
+Iterations: 20
+
+real	0m2.447s
+user	0m45.638s
+sys	0m1.409s
+--------------------- 24 TASKS ---------------------
+N = 10000000, K = 32
+Center: (0.519, 0.600) : Size: 363246
+Center: (0.626, 0.106) : Size: 299212
+Center: (0.714, 0.296) : Size: 363735
+Center: (0.583, 0.420) : Size: 298945
+Center: (0.105, 0.421) : Size: 330956
+Center: (0.068, 0.084) : Size: 236515
+Center: (0.913, 0.921) : Size: 283017
+Center: (0.775, 0.099) : Size: 294618
+Center: (0.344, 0.120) : Size: 284132
+Center: (0.903, 0.599) : Size: 326936
+Center: (0.737, 0.907) : Size: 328465
+Center: (0.926, 0.086) : Size: 262795
+Center: (0.273, 0.303) : Size: 352849
+Center: (0.086, 0.757) : Size: 291869
+Center: (0.292, 0.529) : Size: 350446
+Center: (0.574, 0.879) : Size: 347788
+Center: (0.210, 0.095) : Size: 271000
+Center: (0.085, 0.922) : Size: 274193
+Center: (0.252, 0.700) : Size: 307223
+Center: (0.413, 0.420) : Size: 297494
+Center: (0.901, 0.426) : Size: 330544
+Center: (0.417, 0.922) : Size: 280662
+Center: (0.494, 0.253) : Size: 336378
+Center: (0.092, 0.584) : Size: 310280
+Center: (0.423, 0.739) : Size: 336131
+Center: (0.253, 0.896) : Size: 329092
+Center: (0.905, 0.259) : Size: 317659
+Center: (0.089, 0.254) : Size: 302042
+Center: (0.478, 0.073) : Size: 240921
+Center: (0.895, 0.760) : Size: 326533
+Center: (0.728, 0.516) : Size: 344497
+Center: (0.691, 0.708) : Size: 379827
+Iterations: 20
+
+real	0m2.554s
+user	0m51.532s
+sys	0m1.573s
+--------------------- 26 TASKS ---------------------
+N = 10000000, K = 32
+Center: (0.519, 0.600) : Size: 363246
+Center: (0.626, 0.106) : Size: 299218
+Center: (0.714, 0.296) : Size: 363736
+Center: (0.583, 0.420) : Size: 298940
+Center: (0.105, 0.421) : Size: 330956
+Center: (0.068, 0.084) : Size: 236515
+Center: (0.913, 0.921) : Size: 283017
+Center: (0.775, 0.099) : Size: 294613
+Center: (0.344, 0.120) : Size: 284132
+Center: (0.903, 0.599) : Size: 326941
+Center: (0.737, 0.907) : Size: 328466
+Center: (0.926, 0.086) : Size: 262793
+Center: (0.273, 0.303) : Size: 352851
+Center: (0.086, 0.757) : Size: 291869
+Center: (0.292, 0.529) : Size: 350442
+Center: (0.574, 0.879) : Size: 347784
+Center: (0.210, 0.095) : Size: 271000
+Center: (0.085, 0.922) : Size: 274194
+Center: (0.252, 0.700) : Size: 307227
+Center: (0.413, 0.420) : Size: 297494
+Center: (0.901, 0.426) : Size: 330546
+Center: (0.417, 0.922) : Size: 280663
+Center: (0.494, 0.253) : Size: 336372
+Center: (0.092, 0.584) : Size: 310280
+Center: (0.423, 0.739) : Size: 336132
+Center: (0.253, 0.895) : Size: 329092
+Center: (0.905, 0.259) : Size: 317659
+Center: (0.089, 0.254) : Size: 302042
+Center: (0.478, 0.073) : Size: 240917
+Center: (0.895, 0.760) : Size: 326538
+Center: (0.728, 0.516) : Size: 344493
+Center: (0.691, 0.708) : Size: 379832
+Iterations: 20
+
+real	0m2.376s
+user	0m50.908s
+sys	0m1.830s
+--------------------- 28 TASKS ---------------------
+N = 10000000, K = 32
+Center: (0.519, 0.600) : Size: 363249
+Center: (0.626, 0.106) : Size: 299218
+Center: (0.714, 0.296) : Size: 363738
+Center: (0.583, 0.420) : Size: 298943
+Center: (0.105, 0.421) : Size: 330957
+Center: (0.068, 0.084) : Size: 236515
+Center: (0.913, 0.921) : Size: 283017
+Center: (0.775, 0.099) : Size: 294612
+Center: (0.344, 0.120) : Size: 284133
+Center: (0.903, 0.599) : Size: 326941
+Center: (0.737, 0.907) : Size: 328462
+Center: (0.926, 0.086) : Size: 262795
+Center: (0.273, 0.303) : Size: 352846
+Center: (0.086, 0.757) : Size: 291868
+Center: (0.292, 0.529) : Size: 350449
+Center: (0.574, 0.879) : Size: 347787
+Center: (0.210, 0.095) : Size: 271001
+Center: (0.085, 0.922) : Size: 274193
+Center: (0.252, 0.700) : Size: 307221
+Center: (0.413, 0.420) : Size: 297495
+Center: (0.901, 0.426) : Size: 330542
+Center: (0.417, 0.922) : Size: 280663
+Center: (0.494, 0.253) : Size: 336376
+Center: (0.092, 0.584) : Size: 310279
+Center: (0.423, 0.739) : Size: 336130
+Center: (0.253, 0.896) : Size: 329092
+Center: (0.905, 0.259) : Size: 317656
+Center: (0.089, 0.254) : Size: 302042
+Center: (0.478, 0.073) : Size: 240920
+Center: (0.895, 0.760) : Size: 326537
+Center: (0.728, 0.516) : Size: 344495
+Center: (0.691, 0.708) : Size: 379828
+Iterations: 20
+
+real	0m2.622s
+user	1m0.005s
+sys	0m2.091s
+--------------------- 30 TASKS ---------------------
+N = 10000000, K = 32
+Center: (0.519, 0.600) : Size: 363242
+Center: (0.626, 0.106) : Size: 299218
+Center: (0.714, 0.296) : Size: 363735
+Center: (0.583, 0.420) : Size: 298934
+Center: (0.105, 0.421) : Size: 330956
+Center: (0.068, 0.084) : Size: 236515
+Center: (0.913, 0.921) : Size: 283020
+Center: (0.775, 0.099) : Size: 294616
+Center: (0.344, 0.120) : Size: 284134
+Center: (0.903, 0.599) : Size: 326940
+Center: (0.737, 0.907) : Size: 328465
+Center: (0.926, 0.086) : Size: 262792
+Center: (0.273, 0.303) : Size: 352851
+Center: (0.086, 0.757) : Size: 291869
+Center: (0.292, 0.529) : Size: 350447
+Center: (0.574, 0.879) : Size: 347782
+Center: (0.210, 0.095) : Size: 271001
+Center: (0.085, 0.922) : Size: 274196
+Center: (0.252, 0.700) : Size: 307223
+Center: (0.413, 0.420) : Size: 297491
+Center: (0.901, 0.426) : Size: 330546
+Center: (0.417, 0.922) : Size: 280668
+Center: (0.494, 0.253) : Size: 336378
+Center: (0.092, 0.584) : Size: 310280
+Center: (0.423, 0.739) : Size: 336132
+Center: (0.253, 0.895) : Size: 329093
+Center: (0.905, 0.259) : Size: 317658
+Center: (0.089, 0.254) : Size: 302041
+Center: (0.478, 0.073) : Size: 240919
+Center: (0.895, 0.760) : Size: 326534
+Center: (0.728, 0.516) : Size: 344497
+Center: (0.691, 0.708) : Size: 379827
+Iterations: 20
+
+real	0m2.213s
+user	0m53.885s
+sys	0m2.191s
