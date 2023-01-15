@@ -14,7 +14,7 @@ void k_means_seq (int N_SAMPLES, int K_CLUSTERS){
         iterations++;
     }while(iterations <= 20 && !converged);
 
-    print_output(clusters, clusters_npoints, iterations-1, N_SAMPLES, K_CLUSTERS);
+    //print_output(clusters, clusters_npoints, iterations-1, N_SAMPLES, K_CLUSTERS);
 
     free(samples_space);
     free(clusters);
@@ -40,7 +40,7 @@ void k_means_par (int N_SAMPLES, int K_CLUSTERS, int THREADS){
         iterations++;
     }while(iterations <= 20 && !converged);
 
-    print_output(clusters, clusters_npoints, iterations-1, N_SAMPLES, K_CLUSTERS);
+    //print_output(clusters, clusters_npoints, iterations-1, N_SAMPLES, K_CLUSTERS);
 
     free(samples_space);
     free(clusters);

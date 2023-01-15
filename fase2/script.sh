@@ -1,0 +1,1 @@
+time ./bin/k_means 10000000 4 2

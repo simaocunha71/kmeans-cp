@@ -1,0 +1,103 @@
+Points = 10000000
+Clusters = 128
+------------CLUSTERS = 128------------
+------------N_THREADS = 2------------
+
+real	0m18.946s
+user	0m37.192s
+sys	0m0.010s
+------------N_THREADS = 4------------
+
+real	0m12.000s
+user	0m45.710s
+sys	0m0.010s
+------------N_THREADS = 6------------
+
+real	0m10.022s
+user	0m58.313s
+sys	0m0.030s
+------------N_THREADS = 8------------
+
+real	0m8.528s
+user	1m5.208s
+sys	0m0.030s
+------------N_THREADS = 10------------
+
+real	0m9.316s
+user	1m4.754s
+sys	0m0.050s
+------------N_THREADS = 12------------
+
+real	0m8.976s
+user	1m5.689s
+sys	0m0.090s
+------------N_THREADS = 14------------
+
+real	0m8.720s
+user	1m5.950s
+sys	0m0.040s
+------------N_THREADS = 16------------
+
+real	0m8.575s
+user	1m5.388s
+sys	0m0.040s
+------------N_THREADS = 18------------
+
+real	0m8.686s
+user	1m5.856s
+sys	0m0.040s
+------------N_THREADS = 20------------
+
+real	0m8.637s
+user	1m5.694s
+sys	0m0.101s
+------------N_THREADS = 22------------
+
+real	0m8.695s
+user	1m6.443s
+sys	0m0.051s
+------------N_THREADS = 24------------
+
+real	0m8.470s
+user	1m4.835s
+sys	0m0.091s
+------------N_THREADS = 26------------
+
+real	0m8.586s
+user	1m5.288s
+sys	0m0.091s
+------------N_THREADS = 28------------
+
+real	0m8.572s
+user	1m5.341s
+sys	0m0.071s
+------------N_THREADS = 30------------
+
+real	0m8.512s
+user	1m4.526s
+sys	0m0.111s
+------------N_THREADS = 32------------
+
+real	0m8.561s
+user	1m5.370s
+sys	0m0.081s
+------------N_THREADS = 34------------
+
+real	0m8.542s
+user	1m4.971s
+sys	0m0.111s
+------------N_THREADS = 36------------
+
+real	0m8.566s
+user	1m5.279s
+sys	0m0.091s
+------------N_THREADS = 38------------
+
+real	0m8.562s
+user	1m4.655s
+sys	0m0.091s
+------------N_THREADS = 40------------
+
+real	0m8.615s
+user	1m5.220s
+sys	0m0.071s
