@@ -71,8 +71,8 @@ int main (int argc, char** argv){
     }
 
     //Onlu the masted node will show the results obtained from the children
-    if(world_rank == 0)
-        print_output(clusters_x, clusters_y, clusters_npoints, iterations-1,  N_SAMPLES, K_CLUSTERS);
+    //if(world_rank == 0)
+    //    print_output(clusters_x, clusters_y, clusters_npoints, iterations-1,  N_SAMPLES, K_CLUSTERS);
 
     free(space_x);
     free(space_y);
