@@ -14,4 +14,4 @@
 * Código: [aqui](https://github.com/simaocunha71/kmeans-cp/blob/main/fase3/)
 * Relatório: [aqui](https://github.com/simaocunha71/kmeans-cp/blob/main/fase3/docs/relatorio_tp3.pdf)
 
-Apresentação final: [aqui](https://github.com/simaocunha71/kmeans-cp/apresentacao.pptx)
+Apresentação final: [aqui](https://github.com/simaocunha71/kmeans-cp/blob/main/apresentacao.pptx)
